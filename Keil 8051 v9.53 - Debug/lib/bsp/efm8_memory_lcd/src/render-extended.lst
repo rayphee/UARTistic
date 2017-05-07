@@ -1,0 +1,109 @@
+C51 COMPILER V9.53.0.0   RENDER_EXTENDED                                                   05/07/2017 14:29:25 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE RENDER_EXTENDED
+OBJECT MODULE PLACED IN .\lib/bsp/efm8_memory_lcd/src/render-extended.OBJ
+COMPILER INVOKED BY: Z:\Applications\Simplicity Studio.app\Contents\Eclipse\developer\toolchains\keil_8051\9.53\BIN\C51.
+                    -exe /Users/rafi/SimplicityStudio/v4_workspace/UARTisticFucK/lib/bsp/efm8_memory_lcd/src/render-extended.c OMF2 SMALL DEB
+                    -UG OBJECTEXTEND ROM(LARGE) WARNINGLEVEL(2) FLOATFUZZY(3) OPTIMIZE(8,SPEED) DEFINE(DEBUG=1) INTVECTOR(0X0000) INTPROMOTE 
+                    -INCDIR(/Users/rafi/SimplicityStudio/v4_workspace/UARTisticFucK/inc;/Users/rafi/SimplicityStudio/v4_workspace/UARTisticFu
+                    -cK/inc/config;/Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//Device/EFM8BB3/peripheral
+                    -_driver/inc;/Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/bsp;/Applicatio
+                    -ns/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/EFM8BB3_SLSTK2022A/config;/Applications/Simpl
+                    -icity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_memory_lcd/inc;/Applications/Simp
+                    -licity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_memory_lcd/inc/graphics;/Applica
+                    -tions/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_memory_lcd/inc/config;
+                    -/Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_joystick;/Appl
+                    -ications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_rgb_led;/Applicatio
+                    -ns/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//Device/shared/si8051base;/Applications/Simplicity 
+                    -Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//Device/EFM8BB3/inc;/Applications/Simplicity Studio.app/Contents/
+                    -Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_retargetserial) PRINT(.\lib/bsp/efm8_memory_lcd/src/render-
+                    -extended.lst) COND PAGEWIDTH(120) PAGELENGTH(65) OBJECT(.\lib/bsp/efm8_memory_lcd/src/render-extended.OBJ)
+
+line level    source
+
+   1          /*
+   2           * render-extended.c
+   3           *
+   4           *  Created on: Apr 12, 2017
+   5           *      Author: rafi
+   6           */
+   7          
+   8          #include "bsp.h"
+   9          #include "disp.h"
+  10          #include "../lib/bsp/efm8_memory_lcd/inc/render-extended.h"
+  11          #include <string.h>
+  12          
+  13          static SI_SEGMENT_VARIABLE(line[16], uint8_t, RENDER_LINE_SEG);
+  14          
+  15          void renderAndWriteCenteredText(uint8_t y, uint8_t underlined, SI_VARIABLE_SEGMENT_POINTER(str, char, REND
+             -ER_STR_SEG))
+  16          {
+  17   1              uint8_t x = (128-RENDER_GetStrSize(str))/2;
+  18   1              renderAndWrite(x, y, underlined, str);
+  19   1              RENDER_ClrLine(line);
+  20   1      }
+  21          
+  22          void renderAndWriteHorizontalLine(uint8_t xstart, uint8_t xend, uint8_t y){
+  23   1              RENDER_LineSegmentLine(line, xstart, xend);
+  24   1              DISP_WriteLine(y, line);
+  25   1              RENDER_ClrLine(line);
+  26   1      }
+  27          
+  28          void renderAndWrite(uint8_t x, uint8_t y, uint8_t underlined, SI_VARIABLE_SEGMENT_POINTER(str, char, RENDE
+             -R_STR_SEG)){
+  29   1              uint8_t internal_y;
+  30   1              for (internal_y = 0; internal_y < FONT_HEIGHT; internal_y++)
+  31   1                      {
+  32   2                              RENDER_StrLine(line, x, internal_y, str);
+  33   2                              DISP_WriteLine(y+internal_y, line);
+  34   2                      }
+  35   1              if (underlined != 0){
+  36   2                      renderAndWriteHorizontalLine(x, x+RENDER_GetStrSize(str), y+8);
+  37   2              }
+  38   1              RENDER_ClrLine(line);
+  39   1      }
+C51 COMPILER V9.53.0.0   RENDER_EXTENDED                                                   05/07/2017 14:29:25 PAGE 2   
+
+  40          
+  41          uint16_t timeInMilliseconds(uint16_t timeInMilli){
+  42   1              uint16_t timeInMilliseconds = timeInMilli;
+  43   1              timeInMilliseconds = timeInMilliseconds % 10;
+  44   1              return timeInMilliseconds;
+  45   1      }
+  46          
+  47          uint16_t timeInSeconds(uint16_t timeInMilli){
+  48   1              uint16_t timeInSeconds;
+  49   1              timeInSeconds = (timeInMilli / 10) % 60;
+  50   1              return timeInSeconds;
+  51   1      }
+  52          
+  53          uint16_t timeInMinutes(uint16_t timeInMilli){
+  54   1              uint16_t timeInMinutes;
+  55   1              timeInMinutes = (timeInMilli / 600) % 60;
+  56   1              return timeInMinutes;
+  57   1      }
+  58          
+  59          uint16_t timeInHours(uint16_t timeInMilli){
+  60   1              uint16_t timeInHours;
+  61   1              timeInHours = (timeInMilli / 36000) % 24;
+  62   1              return timeInHours;
+  63   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    244    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     16    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      13
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

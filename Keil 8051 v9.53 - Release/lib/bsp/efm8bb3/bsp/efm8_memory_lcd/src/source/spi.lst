@@ -1,0 +1,153 @@
+C51 COMPILER V9.53.0.0   SPI                                                               05/06/2017 18:51:37 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE SPI
+OBJECT MODULE PLACED IN .\lib/bsp/efm8bb3/bsp/efm8_memory_lcd/src/source/spi.OBJ
+COMPILER INVOKED BY: Z:\Applications\Simplicity Studio.app\Contents\Eclipse\developer\toolchains\keil_8051\9.53\BIN\C51.
+                    -exe /Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3/Device/EFM8BB3/bsp/efm8_memory_lcd/s
+                    -ource/spi.c OMF2 SMALL DEBUG OBJECTEXTEND ROM(LARGE) WARNINGLEVEL(2) FLOATFUZZY(3) OPTIMIZE(9,SPEED) DEFINE(NDEBUG=1) IN
+                    -TVECTOR(0X0000) INTPROMOTE INCDIR(/Users/rafi/SimplicityStudio/v4_workspace/UARTisticFucK/inc;/Applications/Simplicity S
+                    -tudio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//Device/shared/si8051base;/Applications/Simplicity Studio.app/Cont
+                    -ents/Eclipse/developer/sdks/8051/v4.0.3//Device/EFM8BB3/inc;/Applications/Simplicity Studio.app/Contents/Eclipse/develop
+                    -er/sdks/8051/v4.0.3//kits/common/drivers/efm8_retargetserial) REGFILE(UARTisticFucK.ORC) PRINT(.\lib/bsp/efm8bb3/bsp/efm
+                    -8_memory_lcd/src/source/spi.lst) COND PAGEWIDTH(120) PAGELENGTH(65) OBJECT(.\lib/bsp/efm8bb3/bsp/efm8_memory_lcd/src/sou
+                    -rce/spi.OBJ)
+
+line level    source
+
+   1          /**************************************************************************//**
+   2           * Copyright (c) 2015 by Silicon Laboratories Inc. All rights reserved.
+   3           *
+   4           * http://developer.silabs.com/legal/version/v11/Silicon_Labs_Software_License_Agreement.txt
+   5           *****************************************************************************/
+   6          /////////////////////////////////////////////////////////////////////////////
+   7          // Spi.c
+   8          /////////////////////////////////////////////////////////////////////////////
+   9          
+  10          // SPI FIFO Format
+  11          // ---------------
+  12          //
+  13          // All SPI transfers are pushed to the TX FIFO with the transfer size in
+  14          // bytes followed by the data to transmit.
+  15          
+  16          /////////////////////////////////////////////////////////////////////////////
+  17          // Includes
+  18          /////////////////////////////////////////////////////////////////////////////
+  19          
+  20          #include "bsp.h"
+*** WARNING C318 IN LINE 20 OF /Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3/Device/EF
+             -M8BB3/bsp/efm8_memory_lcd/source/spi.c: can't open file 'bsp.h'
+  21          #include "spi.h"
+*** WARNING C318 IN LINE 21 OF /Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3/Device/EF
+             -M8BB3/bsp/efm8_memory_lcd/source/spi.c: can't open file 'spi.h'
+  22          #include "spi_0.h"
+*** WARNING C318 IN LINE 22 OF /Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3/Device/EF
+             -M8BB3/bsp/efm8_memory_lcd/source/spi.c: can't open file 'spi_0.h'
+  23          #include <string.h>
+  24          
+  25          /////////////////////////////////////////////////////////////////////////////
+  26          // Globals
+  27          /////////////////////////////////////////////////////////////////////////////
+  28          
+  29          static SI_SEGMENT_VARIABLE(TxBuffer[SPI_BUF_SIZE], uint8_t, EFM8PDL_SPI0_TX_SEGTYPE);
+*** ERROR C141 IN LINE 29 OF /Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3/Device/EFM8
+             -BB3/bsp/efm8_memory_lcd/source/spi.c: syntax error near '[', expected ')'
+  30          
+  31          static volatile uint8_t TransferState = ST_IDLE;
+*** ERROR C129 IN LINE 31 OF /Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3/Device/EFM8
+             -BB3/bsp/efm8_memory_lcd/source/spi.c: missing ';' before 'TransferState'
+  32          static volatile uint8_t TransferSize = 0;
+  33          
+  34          /////////////////////////////////////////////////////////////////////////////
+  35          // Functions
+  36          /////////////////////////////////////////////////////////////////////////////
+  37          
+  38          void SPI_StartTransfer(SI_VARIABLE_SEGMENT_POINTER(buffer, uint8_t, SI_SEG_GENERIC), uint8_t size)
+C51 COMPILER V9.53.0.0   SPI                                                               05/06/2017 18:51:37 PAGE 2   
+
+  39          {
+  40            uint8_t sfrPageSave;
+  41            uint8_t i;
+  42          
+  43            // Wait for previous transfer to complete
+  44            while (TransferState != ST_IDLE);
+  45          
+  46            // Start new transfer
+  47            TransferState = ST_CS_SETUP;
+  48            TransferSize = size;
+  49          
+  50            for (i = 0; i < size; i++)
+  51            {
+  52              TxBuffer[i] = buffer[i];
+  53            }
+  54          
+  55            sfrPageSave = SFRPAGE;
+  56            SFRPAGE = LEGACY_PAGE;
+  57          
+  58            // CS setup time
+  59            // Timer 2 overflows at end of setup time
+  60            TMR2 = (uint16_t)-(DELAY_TIMER_FREQ / 1000000 * SPI_CS_SETUP_US);
+  61            BSP_DISP_CS = SPI_CS_ASSERT_LVL;
+  62            TMR2CN0 |= TMR2CN0_TR2__BMASK;
+  63          
+  64            SFRPAGE = sfrPageSave;
+  65          }
+  66          
+  67          /////////////////////////////////////////////////////////////////////////////
+  68          // Interrupt Service Handlers
+  69          /////////////////////////////////////////////////////////////////////////////
+  70          
+  71          void SPI0_transferCompleteCb(void)
+  72          {
+  73            uint8_t sfrPageSave;
+  74          
+  75            // CS hold time
+  76            TransferState = ST_CS_HOLD;
+  77          
+  78            sfrPageSave = SFRPAGE;
+  79            SFRPAGE = LEGACY_PAGE;
+  80          
+  81            // CS hold time
+  82            // Timer 2 overflows at end of hold time
+  83            TMR2 = (uint16_t)-(DELAY_TIMER_FREQ / 1000000 * SPI_CS_HOLD_US);
+  84            TMR2CN0 |= TMR2CN0_TR2__BMASK;
+  85          
+  86            SFRPAGE = sfrPageSave;
+  87          }
+  88          
+  89          //-----------------------------------------------------------------------------
+  90          // TIMER2_ISR
+  91          //-----------------------------------------------------------------------------
+  92          //
+  93          // TIMER2 ISR Content goes here. Remember to clear flag bits:
+  94          // TMR2CN::TF2H (Timer # High Byte Overflow Flag)
+  95          // TMR2CN::TF2L (Timer # Low Byte Overflow Flag)
+  96          //
+  97          //-----------------------------------------------------------------------------
+  98          SI_INTERRUPT (TIMER2_ISR, TIMER2_IRQn)
+  99          {
+ 100            TMR2CN0 &= ~TMR2CN0_TF2H__BMASK;
+ 101          
+C51 COMPILER V9.53.0.0   SPI                                                               05/06/2017 18:51:37 PAGE 3   
+
+ 102            // Stop timer
+ 103            TMR2CN0 &= ~TMR2CN0_TR2__BMASK;
+ 104          
+ 105            // CS setup complete
+ 106            if (TransferState == ST_CS_SETUP)
+ 107            {
+ 108              TransferState = ST_TX;
+ 109              SPI0_transfer(TxBuffer, NULL, SPI0_TRANSFER_TX, TransferSize);
+ 110            }
+ 111            // CS hold complete
+ 112            else if (TransferState == ST_CS_HOLD)
+ 113            {
+ 114              // Deassert CS
+ 115              BSP_DISP_CS = SPI_CS_DEASSERT_LVL;
+ 116          
+ 117              // Transfer complete
+ 118              TransferState = ST_IDLE;
+ 119            }
+ 120          }
+
+C51 COMPILATION COMPLETE.  3 WARNING(S),  2 ERROR(S)
