@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 14:29:23 PAGE 1   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 15:44:57 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE INITDEVICE
@@ -63,7 +63,7 @@ line level    source
   39   1              UART_0_enter_DefaultMode_from_RESET();
   40   1              INTERRUPT_0_enter_DefaultMode_from_RESET();
   41   1              // Restore the SFRPAGE
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 14:29:23 PAGE 2   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 15:44:57 PAGE 2   
 
   42   1              SFRPAGE = SFRPAGE_save;
   43   1              // [Config Calls]$
@@ -128,7 +128,7 @@ line level    source
  102   1              // [P0SKIP - Port 0 Skip]$
  103   1      
  104   1              // $[P0MASK - Port 0 Mask]
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 14:29:23 PAGE 3   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 15:44:57 PAGE 3   
 
  105   1              // [P0MASK - Port 0 Mask]$
  106   1      
@@ -193,7 +193,7 @@ line level    source
  165   1                              | P1SKIP_B4__NOT_SKIPPED | P1SKIP_B5__NOT_SKIPPED
  166   1                              | P1SKIP_B6__NOT_SKIPPED | P1SKIP_B7__SKIPPED;
  167   1              // [P1SKIP - Port 1 Skip]$
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 14:29:23 PAGE 4   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 15:44:57 PAGE 4   
 
  168   1      
  169   1              // $[P1MASK - Port 1 Mask]
@@ -258,7 +258,7 @@ line level    source
  228   1              /***********************************************************************
  229   1               - Weak Pullups enabled 
  230   1               - Crossbar enabled
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 14:29:23 PAGE 5   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 15:44:57 PAGE 5   
 
  231   1               - UART1 I/O unavailable at Port pin
  232   1               - UART1 RTS1 unavailable at Port pin
@@ -323,7 +323,7 @@ line level    source
  291   1              TCON_save = TCON;
  292   1              //Stop Timers
  293   1              TCON &= ~TCON_TR0__BMASK & ~TCON_TR1__BMASK;
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 14:29:23 PAGE 6   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 15:44:57 PAGE 6   
 
  294   1      
  295   1              // [Timer Initialization]$
@@ -388,7 +388,7 @@ line level    source
  354   1              CKCON1 = CKCON1_T4MH__EXTERNAL_CLOCK | CKCON1_T4ML__SYSCLK
  355   1                              | CKCON1_T5MH__EXTERNAL_CLOCK | CKCON1_T5ML__EXTERNAL_CLOCK;
  356   1              // [CKCON1 - Clock Control 1]$
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 14:29:23 PAGE 7   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 15:44:57 PAGE 7   
 
  357   1      
  358   1              // $[TMOD - Timer 0/1 Mode]
@@ -453,7 +453,7 @@ line level    source
  417   1      
  418   1              // $[EIP1H - Extended Interrupt Priority 1 High]
  419   1              // [EIP1H - Extended Interrupt Priority 1 High]$
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 14:29:23 PAGE 8   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 15:44:57 PAGE 8   
 
  420   1      
  421   1              // $[EIP1 - Extended Interrupt Priority 1 Low]
@@ -518,7 +518,7 @@ line level    source
  480   1              IP = IP_PX0__LOW | IP_PX1__LOW | IP_PSPI0__LOW | IP_PT0__LOW | IP_PT1__LOW
  481   1                              | IP_PT2__LOW | IP_PS0__HIGH;
  482   1              // [IP - Interrupt Priority]$
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 14:29:23 PAGE 9   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 15:44:57 PAGE 9   
 
  483   1      
  484   1              // $[IPH - Interrupt Priority High]
@@ -583,7 +583,7 @@ line level    source
  543   1              // [ADC0LTL - ADC0 Less-Than Low Byte]$
  544   1      
  545   1              // $[ADC0ASCF - ADC0 Autoscan Configuration]
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 14:29:23 PAGE 10  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 15:44:57 PAGE 10  
 
  546   1              // [ADC0ASCF - ADC0 Autoscan Configuration]$
  547   1      
@@ -632,141 +632,154 @@ line level    source
  590   1              // [P3 - Port 3 Pin Latch]$
  591   1      
  592   1              // $[P3MDOUT - Port 3 Output Mode]
- 593   1              // [P3MDOUT - Port 3 Output Mode]$
- 594   1      
- 595   1              // $[P3MDIN - Port 3 Input Mode]
- 596   1              // [P3MDIN - Port 3 Input Mode]$
- 597   1      
- 598   1      }
- 599          
- 600          extern void TIMER16_3_enter_DefaultMode_from_RESET(void) {
- 601   1              // $[Timer Initialization]
- 602   1              // Save Timer Configuration
- 603   1              uint8_t TMR3CN0_TR3_save;
- 604   1              TMR3CN0_TR3_save = TMR3CN0 & TMR3CN0_TR3__BMASK;
- 605   1              // Stop Timer
- 606   1              TMR3CN0 &= ~(TMR3CN0_TR3__BMASK);
- 607   1              // [Timer Initialization]$
+ 593   1              /***********************************************************************
+ 594   1               - P3.0 output is open-drain
+ 595   1               - P3.1 output is open-drain
+ 596   1               - P3.2 output is open-drain
+ 597   1               - P3.3 output is open-drain
+ 598   1               - P3.4 output is push-pull
+ 599   1               - P3.7 output is open-drain
+ 600   1               ***********************************************************************/
+ 601   1              P3MDOUT = P3MDOUT_B0__OPEN_DRAIN | P3MDOUT_B1__OPEN_DRAIN
+ 602   1                              | P3MDOUT_B2__OPEN_DRAIN | P3MDOUT_B3__OPEN_DRAIN
+ 603   1                              | P3MDOUT_B4__PUSH_PULL | P3MDOUT_B7__OPEN_DRAIN;
+ 604   1              // [P3MDOUT - Port 3 Output Mode]$
+ 605   1      
+ 606   1              // $[P3MDIN - Port 3 Input Mode]
+ 607   1              // [P3MDIN - Port 3 Input Mode]$
  608   1      
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 14:29:23 PAGE 11  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 15:44:57 PAGE 11  
 
- 609   1              // $[TMR3CN1 - Timer 3 Control 1]
- 610   1              // [TMR3CN1 - Timer 3 Control 1]$
- 611   1      
- 612   1              // $[TMR3CN0 - Timer 3 Control]
- 613   1              // [TMR3CN0 - Timer 3 Control]$
- 614   1      
- 615   1              // $[TMR3H - Timer 3 High Byte]
- 616   1              /***********************************************************************
- 617   1               - Timer 3 High Byte = 0xF8
- 618   1               ***********************************************************************/
- 619   1              TMR3H = (0xF8 << TMR3H_TMR3H__SHIFT);
- 620   1              // [TMR3H - Timer 3 High Byte]$
- 621   1      
- 622   1              // $[TMR3L - Timer 3 Low Byte]
- 623   1              /***********************************************************************
- 624   1               - Timer 3 Low Byte = 0x06
- 625   1               ***********************************************************************/
- 626   1              TMR3L = (0x06 << TMR3L_TMR3L__SHIFT);
- 627   1              // [TMR3L - Timer 3 Low Byte]$
- 628   1      
- 629   1              // $[TMR3RLH - Timer 3 Reload High Byte]
- 630   1              /***********************************************************************
- 631   1               - Timer 3 Reload High Byte = 0xF8
- 632   1               ***********************************************************************/
- 633   1              TMR3RLH = (0xF8 << TMR3RLH_TMR3RLH__SHIFT);
- 634   1              // [TMR3RLH - Timer 3 Reload High Byte]$
- 635   1      
- 636   1              // $[TMR3RLL - Timer 3 Reload Low Byte]
- 637   1              /***********************************************************************
- 638   1               - Timer 3 Reload Low Byte = 0x06
- 639   1               ***********************************************************************/
- 640   1              TMR3RLL = (0x06 << TMR3RLL_TMR3RLL__SHIFT);
- 641   1              // [TMR3RLL - Timer 3 Reload Low Byte]$
- 642   1      
- 643   1              // $[TMR3CN0]
- 644   1              /***********************************************************************
- 645   1               - Start Timer 3 running
- 646   1               ***********************************************************************/
- 647   1              TMR3CN0 |= TMR3CN0_TR3__RUN;
- 648   1              // [TMR3CN0]$
- 649   1      
- 650   1              // $[Timer Restoration]
- 651   1              // Restore Timer Configuration
- 652   1              TMR3CN0 |= TMR3CN0_TR3_save;
- 653   1              // [Timer Restoration]$
- 654   1      
- 655   1      }
- 656          
- 657          extern void TIMER16_4_enter_DefaultMode_from_RESET(void) {
- 658   1              // $[Timer Initialization]
- 659   1              // Save Timer Configuration
- 660   1              uint8_t TMR4CN0_TR4_save;
- 661   1              SFRPAGE = 0x10;
- 662   1              TMR4CN0_TR4_save = TMR4CN0 & TMR4CN0_TR4__BMASK;
- 663   1              // Stop Timer
- 664   1              TMR4CN0 &= ~(TMR4CN0_TR4__BMASK);
- 665   1              // [Timer Initialization]$
- 666   1      
- 667   1              // $[TMR4CN1 - Timer 4 Control 1]
- 668   1              // [TMR4CN1 - Timer 4 Control 1]$
- 669   1      
- 670   1              // $[TMR4CN0 - Timer 4 Control]
- 671   1              // [TMR4CN0 - Timer 4 Control]$
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 14:29:23 PAGE 12  
+ 609   1      }
+ 610          
+ 611          extern void TIMER16_3_enter_DefaultMode_from_RESET(void) {
+ 612   1              // $[Timer Initialization]
+ 613   1              // Save Timer Configuration
+ 614   1              uint8_t TMR3CN0_TR3_save;
+ 615   1              TMR3CN0_TR3_save = TMR3CN0 & TMR3CN0_TR3__BMASK;
+ 616   1              // Stop Timer
+ 617   1              TMR3CN0 &= ~(TMR3CN0_TR3__BMASK);
+ 618   1              // [Timer Initialization]$
+ 619   1      
+ 620   1              // $[TMR3CN1 - Timer 3 Control 1]
+ 621   1              // [TMR3CN1 - Timer 3 Control 1]$
+ 622   1      
+ 623   1              // $[TMR3CN0 - Timer 3 Control]
+ 624   1              // [TMR3CN0 - Timer 3 Control]$
+ 625   1      
+ 626   1              // $[TMR3H - Timer 3 High Byte]
+ 627   1              /***********************************************************************
+ 628   1               - Timer 3 High Byte = 0xF8
+ 629   1               ***********************************************************************/
+ 630   1              TMR3H = (0xF8 << TMR3H_TMR3H__SHIFT);
+ 631   1              // [TMR3H - Timer 3 High Byte]$
+ 632   1      
+ 633   1              // $[TMR3L - Timer 3 Low Byte]
+ 634   1              /***********************************************************************
+ 635   1               - Timer 3 Low Byte = 0x06
+ 636   1               ***********************************************************************/
+ 637   1              TMR3L = (0x06 << TMR3L_TMR3L__SHIFT);
+ 638   1              // [TMR3L - Timer 3 Low Byte]$
+ 639   1      
+ 640   1              // $[TMR3RLH - Timer 3 Reload High Byte]
+ 641   1              /***********************************************************************
+ 642   1               - Timer 3 Reload High Byte = 0xF8
+ 643   1               ***********************************************************************/
+ 644   1              TMR3RLH = (0xF8 << TMR3RLH_TMR3RLH__SHIFT);
+ 645   1              // [TMR3RLH - Timer 3 Reload High Byte]$
+ 646   1      
+ 647   1              // $[TMR3RLL - Timer 3 Reload Low Byte]
+ 648   1              /***********************************************************************
+ 649   1               - Timer 3 Reload Low Byte = 0x06
+ 650   1               ***********************************************************************/
+ 651   1              TMR3RLL = (0x06 << TMR3RLL_TMR3RLL__SHIFT);
+ 652   1              // [TMR3RLL - Timer 3 Reload Low Byte]$
+ 653   1      
+ 654   1              // $[TMR3CN0]
+ 655   1              /***********************************************************************
+ 656   1               - Start Timer 3 running
+ 657   1               ***********************************************************************/
+ 658   1              TMR3CN0 |= TMR3CN0_TR3__RUN;
+ 659   1              // [TMR3CN0]$
+ 660   1      
+ 661   1              // $[Timer Restoration]
+ 662   1              // Restore Timer Configuration
+ 663   1              TMR3CN0 |= TMR3CN0_TR3_save;
+ 664   1              // [Timer Restoration]$
+ 665   1      
+ 666   1      }
+ 667          
+ 668          extern void TIMER16_4_enter_DefaultMode_from_RESET(void) {
+ 669   1              // $[Timer Initialization]
+ 670   1              // Save Timer Configuration
+ 671   1              uint8_t TMR4CN0_TR4_save;
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 15:44:57 PAGE 12  
 
- 672   1      
- 673   1              // $[TMR4H - Timer 4 High Byte]
- 674   1              /***********************************************************************
- 675   1               - Timer 4 High Byte = 0xFE
- 676   1               ***********************************************************************/
- 677   1              TMR4H = (0xFE << TMR4H_TMR4H__SHIFT);
- 678   1              // [TMR4H - Timer 4 High Byte]$
- 679   1      
- 680   1              // $[TMR4L - Timer 4 Low Byte]
- 681   1              /***********************************************************************
- 682   1               - Timer 4 Low Byte = 0x68
- 683   1               ***********************************************************************/
- 684   1              TMR4L = (0x68 << TMR4L_TMR4L__SHIFT);
- 685   1              // [TMR4L - Timer 4 Low Byte]$
- 686   1      
- 687   1              // $[TMR4RLH - Timer 4 Reload High Byte]
- 688   1              /***********************************************************************
- 689   1               - Timer 4 Reload High Byte = 0xFE
- 690   1               ***********************************************************************/
- 691   1              TMR4RLH = (0xFE << TMR4RLH_TMR4RLH__SHIFT);
- 692   1              // [TMR4RLH - Timer 4 Reload High Byte]$
- 693   1      
- 694   1              // $[TMR4RLL - Timer 4 Reload Low Byte]
- 695   1              /***********************************************************************
- 696   1               - Timer 4 Reload Low Byte = 0x68
- 697   1               ***********************************************************************/
- 698   1              TMR4RLL = (0x68 << TMR4RLL_TMR4RLL__SHIFT);
- 699   1              // [TMR4RLL - Timer 4 Reload Low Byte]$
- 700   1      
- 701   1              // $[TMR4CN0]
- 702   1              /***********************************************************************
- 703   1               - Start Timer 4 running
- 704   1               ***********************************************************************/
- 705   1              TMR4CN0 |= TMR4CN0_TR4__RUN;
- 706   1              // [TMR4CN0]$
- 707   1      
- 708   1              // $[Timer Restoration]
- 709   1              // Restore Timer Configuration
- 710   1              TMR4CN0 |= TMR4CN0_TR4_save;
- 711   1              // [Timer Restoration]$
- 712   1      
- 713   1      }
- 714          
- 715          extern void TIMER16_2_enter_DefaultMode_from_RESET(void) {
- 716   1      
- 717   1      }
- 718          
+ 672   1              SFRPAGE = 0x10;
+ 673   1              TMR4CN0_TR4_save = TMR4CN0 & TMR4CN0_TR4__BMASK;
+ 674   1              // Stop Timer
+ 675   1              TMR4CN0 &= ~(TMR4CN0_TR4__BMASK);
+ 676   1              // [Timer Initialization]$
+ 677   1      
+ 678   1              // $[TMR4CN1 - Timer 4 Control 1]
+ 679   1              // [TMR4CN1 - Timer 4 Control 1]$
+ 680   1      
+ 681   1              // $[TMR4CN0 - Timer 4 Control]
+ 682   1              // [TMR4CN0 - Timer 4 Control]$
+ 683   1      
+ 684   1              // $[TMR4H - Timer 4 High Byte]
+ 685   1              /***********************************************************************
+ 686   1               - Timer 4 High Byte = 0xFE
+ 687   1               ***********************************************************************/
+ 688   1              TMR4H = (0xFE << TMR4H_TMR4H__SHIFT);
+ 689   1              // [TMR4H - Timer 4 High Byte]$
+ 690   1      
+ 691   1              // $[TMR4L - Timer 4 Low Byte]
+ 692   1              /***********************************************************************
+ 693   1               - Timer 4 Low Byte = 0x68
+ 694   1               ***********************************************************************/
+ 695   1              TMR4L = (0x68 << TMR4L_TMR4L__SHIFT);
+ 696   1              // [TMR4L - Timer 4 Low Byte]$
+ 697   1      
+ 698   1              // $[TMR4RLH - Timer 4 Reload High Byte]
+ 699   1              /***********************************************************************
+ 700   1               - Timer 4 Reload High Byte = 0xFE
+ 701   1               ***********************************************************************/
+ 702   1              TMR4RLH = (0xFE << TMR4RLH_TMR4RLH__SHIFT);
+ 703   1              // [TMR4RLH - Timer 4 Reload High Byte]$
+ 704   1      
+ 705   1              // $[TMR4RLL - Timer 4 Reload Low Byte]
+ 706   1              /***********************************************************************
+ 707   1               - Timer 4 Reload Low Byte = 0x68
+ 708   1               ***********************************************************************/
+ 709   1              TMR4RLL = (0x68 << TMR4RLL_TMR4RLL__SHIFT);
+ 710   1              // [TMR4RLL - Timer 4 Reload Low Byte]$
+ 711   1      
+ 712   1              // $[TMR4CN0]
+ 713   1              /***********************************************************************
+ 714   1               - Start Timer 4 running
+ 715   1               ***********************************************************************/
+ 716   1              TMR4CN0 |= TMR4CN0_TR4__RUN;
+ 717   1              // [TMR4CN0]$
+ 718   1      
+ 719   1              // $[Timer Restoration]
+ 720   1              // Restore Timer Configuration
+ 721   1              TMR4CN0 |= TMR4CN0_TR4_save;
+ 722   1              // [Timer Restoration]$
+ 723   1      
+ 724   1      }
+ 725          
+ 726          extern void TIMER16_2_enter_DefaultMode_from_RESET(void) {
+ 727   1      
+ 728   1      }
+ 729          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    258    ----
+   CODE SIZE        =    261    ----
    CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        05/07/2017 15:44:57 PAGE 13  
+
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----       1

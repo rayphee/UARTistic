@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.30.0                                                          05/07/2017  14:29:26  PAGE 1
+LX51 LINKER/LOCATER V4.66.30.0                                                          05/07/2017  15:45:00  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.30.0, INVOKED BY:
@@ -62,9 +62,9 @@ C:000000H   C:000000H   C:00FBFEH             ECODE
 B00:0000H   C:000000H   C:00FBFEH             HCONST
 X:000000H   X:000000H   X:000FFFH   000218H   XDATA
 X:000000H   X:000000H   X:000FFFH             HDATA
-C:000000H   C:000000H   C:00FFFFH   000930H   CODE
+C:000000H   C:000000H   C:00FFFFH   000933H   CODE
 I:000000H   I:000000H   I:00007FH   000046H   DATA
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 2
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 2
 
 
 C:000000H   C:000000H   C:00FFFFH   000320H   CONST
@@ -95,12 +95,13 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO?SILABS_STARTUP?3
 000003H   000021H   00001FH   BYTE   UNIT     CODE           ?PR?_WAIT?TICK
-000022H   000022H   000001H   BYTE   UNIT     CODE           ?PR?PORTS_3_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000022H   000022H   000001H   ---    ---      **GAP**
 000023H   000025H   000003H   BYTE   OFFS..   CODE           ?EFM8BB3_UART_INTERRUPT?00023
 000026H   000029H   000004H   BYTE   UNIT     CODE           ?PR?UART_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
 00002AH   00002AH   000001H   ---    ---      **GAP**
 00002BH   00002DH   000003H   BYTE   OFFS..   CODE           ?SPI?0002B
-00002EH   000032H   000005H   ---    ---      **GAP**
+00002EH   000031H   000004H   BYTE   UNIT     CODE           ?PR?PORTS_3_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000032H   000032H   000001H   ---    ---      **GAP**
 000033H   000035H   000003H   BYTE   OFFS..   CODE           ?SPI_0?00033
 000036H   000070H   00003BH   BYTE   UNIT     CODE           ?PR?_DISP_CLEARLINE?DISP
 000071H   000072H   000002H   ---    ---      **GAP**
@@ -128,10 +129,10 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 0007D1H   0007ECH   00001CH   BYTE   UNIT     CODE           ?PR?INTERRUPT_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
 0007EDH   000808H   00001CH   BYTE   UNIT     CODE           ?PR?TIMER16_4_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
 000809H   000823H   00001BH   BYTE   UNIT     CODE           ?PR?MAIN?EFM8BB3_UART_INTERRUPT
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 3
+
+
 000824H   00083CH   000019H   BYTE   UNIT     CODE           ?PR?TIMER16_3_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 3
-
-
 00083DH   000852H   000016H   BYTE   UNIT     CODE           ?PR?GETTICKCOUNT?TICK
 000853H   000868H   000016H   BYTE   UNIT     CODE           ?PR?TIMER01_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
 000869H   00087DH   000015H   BYTE   UNIT     CODE           ?PR?TIMER_SETUP_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
@@ -193,10 +194,10 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
    *DEL*:           00000FH   BYTE   UNIT     CODE           ?PR?SPI0_ISRXEMPTY?SPI_0
    *DEL*:           000000H.1 BIT    UNIT     BIT            ?BI?SPI0_ISRXEMPTY?SPI_0
    *DEL*:           000036H   BYTE   UNIT     CODE           ?PR?_SPI0_INIT?SPI_0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 4
+
+
    *DEL*:           000000H.2 BIT    UNIT     BIT            ?BI?_SPI0_INIT?SPI_0
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 4
-
-
    *DEL*:           000032H   BYTE   UNIT     CODE           ?PR?_SPI0_SETCLOCKDIVIDER?SPI_0
    *DEL*:           00000DH   BYTE   UNIT     CODE           ?PR?SPI0_RESET?SPI_0
    *DEL*:           000013H   BYTE   UNIT     CODE           ?PR?SPI0_ISFIFOTXREQ?SPI_0
@@ -258,10 +259,10 @@ ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE       ----- -----  0027H 0027H
   +--> PORTS_0_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
   +--> PORTS_1_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
   +--> PORTS_2_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 5
+
+
   +--> PORTS_3_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 5
-
-
   +--> PBCFG_0_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
   +--> ADC_0_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
   +--> CLOCK_0_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
@@ -323,10 +324,10 @@ DISP_INIT/DISP                                ----- -----  ----- -----
   +--> DISP_CLEARALL/DISP
 
 _WAIT/TICK                                    ----- -----  ----- -----
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 6
+
+
   +--> GETTICKCOUNT/TICK
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 6
-
-
 
 GETTICKCOUNT/TICK                             ----- -----  ----- -----
 
@@ -388,8 +389,8 @@ _RENDER_CLRLINE/RENDER                        ----- -----  ----- -----
 ?C_INITSEG                                    ----- -----  ----- -----
 
 
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 7
 
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 7
 
 
 PUBLIC SYMBOLS OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
@@ -453,10 +454,10 @@ PUBLIC SYMBOLS OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
 *SFR* 000000E0H.3 DATA     BIT       ACC_ACC3
 *SFR* 000000E0H.4 DATA     BIT       ACC_ACC4
 *SFR* 000000E0H.5 DATA     BIT       ACC_ACC5
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 8
+
+
 *SFR* 000000E0H.6 DATA     BIT       ACC_ACC6
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 8
-
-
 *SFR* 000000E0H.7 DATA     BIT       ACC_ACC7
 *SFR* 000000BDH   DATA     WORD      ADC0
 *SFR* 000000B5H   DATA     WORD      ADC0ASA
@@ -518,10 +519,10 @@ PUBLIC SYMBOLS OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
 *SFR* 000000E8H.1 DATA     BIT       CLIF0_C0RIF
 *SFR* 000000E8H.2 DATA     BIT       CLIF0_C1FIF
 *SFR* 000000E8H.3 DATA     BIT       CLIF0_C1RIF
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 9
+
+
 *SFR* 000000E8H.4 DATA     BIT       CLIF0_C2FIF
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 9
-
-
 *SFR* 000000E8H.5 DATA     BIT       CLIF0_C2RIF
 *SFR* 000000E8H.6 DATA     BIT       CLIF0_C3FIF
 *SFR* 000000E8H.7 DATA     BIT       CLIF0_C3RIF
@@ -583,10 +584,10 @@ PUBLIC SYMBOLS OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
 *SFR* 00000088H.5 DATA     BIT       DACGCF0_D3SRC1
 *SFR* 00000098H   DATA     BYTE      DACGCF1
 *SFR* 00000098H   DATA     BIT       DACGCF1_D0UDIS
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 10
+
+
 *SFR* 00000098H.1 DATA     BIT       DACGCF1_D1UDIS
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 10
-
-
 *SFR* 00000098H.2 DATA     BIT       DACGCF1_D2UDIS
 *SFR* 00000098H.3 DATA     BIT       DACGCF1_D3UDIS
 *SFR* 000000A2H   DATA     BYTE      DACGCF2
@@ -648,10 +649,10 @@ PUBLIC SYMBOLS OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
 *SFR* 000000B8H.3 DATA     BIT       IP_PT1
 *SFR* 000000B8H.5 DATA     BIT       IP_PT2
 *SFR* 000000B8H   DATA     BIT       IP_PX0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 11
+
+
 *SFR* 000000B8H.2 DATA     BIT       IP_PX1
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 11
-
-
 *SFR* 000000F2H   DATA     BYTE      IPH
 *SFR* 00000088H   DATA     BIT       IT0
 *SFR* 000000E4H   DATA     BYTE      IT01CF
@@ -713,10 +714,10 @@ PUBLIC SYMBOLS OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
 *SFR* 0000009CH   DATA     BYTE      P3MDOUT
       01000911H   CODE     ---       PBCFG_0_enter_DefaultMode_from_RESET
 *SFR* 000000F9H   DATA     WORD      PCA0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 12
+
+
 *SFR* 0000009EH   DATA     BYTE      PCA0CENT
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 12
-
-
 *SFR* 0000009CH   DATA     BYTE      PCA0CLR
 *SFR* 000000D8H   DATA     BYTE      PCA0CN0
 *SFR* 000000D8H   DATA     BIT       PCA0CN0_CCF0
@@ -763,7 +764,7 @@ PUBLIC SYMBOLS OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       01000924H   CODE     ---       PORTS_0_enter_DefaultMode_from_RESET
       010008FDH   CODE     ---       PORTS_1_enter_DefaultMode_from_RESET
       01000907H   CODE     ---       PORTS_2_enter_DefaultMode_from_RESET
-      01000022H   CODE     ---       PORTS_3_enter_DefaultMode_from_RESET
+      0100002EH   CODE     ---       PORTS_3_enter_DefaultMode_from_RESET
 *SFR* 000000A0H   DATA     BYTE      PPAGE_SFR
 *SFR* 000000F6H   DATA     BYTE      PRTDRV
 *SFR* 000000B8H.4 DATA     BIT       PS
@@ -778,10 +779,10 @@ PUBLIC SYMBOLS OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
 *SFR* 000000D0H   DATA     BIT       PSW_PARITY
 *SFR* 000000D0H.3 DATA     BIT       PSW_RS0
 *SFR* 000000D0H.4 DATA     BIT       PSW_RS1
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 13
+
+
 *SFR* 000000B8H.1 DATA     BIT       PT0
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 13
-
-
 *SFR* 000000B8H.3 DATA     BIT       PT1
 *SFR* 000000B8H   DATA     BIT       PX0
 *SFR* 000000B8H.2 DATA     BIT       PX1
@@ -843,10 +844,10 @@ PUBLIC SYMBOLS OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
 *SFR* 000000C4H   DATA     BYTE      SMB0FCN1
 *SFR* 000000EFH   DATA     BYTE      SMB0FCT
 *SFR* 000000C5H   DATA     BYTE      SMB0RXLN
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 14
+
+
 *SFR* 000000ACH   DATA     BYTE      SMB0TC
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 14
-
-
 *SFR* 00000093H   DATA     BYTE      SMOD1
 *SFR* 00000081H   DATA     BYTE      SP
 *DEL*:00000000H   CODE     ---       SPI0_abortTransfer
@@ -908,10 +909,10 @@ PUBLIC SYMBOLS OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       01000493H   CODE     ---       TIMER2_ISR
       010008C8H   CODE     ---       TIMER3_ISR
       01000869H   CODE     ---       TIMER_SETUP_0_enter_DefaultMode_from_RESET
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 15
+
+
 *SFR* 0000008AH   DATA     BYTE      TL0
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 15
-
-
 *SFR* 0000008BH   DATA     BYTE      TL1
 *SFR* 00000089H   DATA     BYTE      TMOD
 *SFR* 000000CEH   DATA     WORD      TMR2
@@ -973,10 +974,10 @@ PUBLIC SYMBOLS OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
 *SFR* 00000088H.4 DATA     BIT       TR0
 *SFR* 00000088H.6 DATA     BIT       TR1
 *SFR* 000000B0H.1 DATA     BIT       TXD
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 16
+
+
       01000412H   CODE     ---       UART0_ISR
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 16
-
-
 *SFR* 000000D9H   DATA     BYTE      UART0PCF
 *SFR* 0000009DH   DATA     BYTE      UART1FCN0
 *SFR* 000000D8H   DATA     BYTE      UART1FCN1
@@ -1038,10 +1039,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000E8H.7 SFRSYM    DATA     BIT       CLIF0_C3RIF
       000000E4H   SFRSYM    DATA     BYTE      IT01CF
       00000080H.3 SFRSYM    DATA     BIT       BSP_PB1
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 17
+
+
       000000C0H.6 SFRSYM    DATA     BIT       SMB0CN0_TXMODE
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 17
-
-
       000000ADH   SFRSYM    DATA     BYTE      DERIVID
       000000A7H   SFRSYM    DATA     BYTE      SFRPAGE
       000000A4H   SFRSYM    DATA     BYTE      P0MDOUT
@@ -1103,10 +1104,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000AFH   SFRSYM    DATA     BYTE      PCA0CPM4
       000000DDH   SFRSYM    DATA     BYTE      PCA0CPL5
       000000C3H   SFRSYM    DATA     BYTE      SMB0FCN0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 18
+
+
       000000CCH   SFRSYM    DATA     BYTE      PCA0CPM5
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 18
-
-
       000000B5H   SFRSYM    DATA     BYTE      ADC0ASAL
       000000E1H   SFRSYM    DATA     BYTE      XBR0
       000000C4H   SFRSYM    DATA     BYTE      SMB0FCN1
@@ -1168,10 +1169,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000B5H   SFRSYM    DATA     BYTE      CLU2FN
       000000C0H.4 SFRSYM    DATA     BIT       SMB0CN0_STO
       000000F4H   SFRSYM    DATA     BYTE      P3MDIN
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 19
+
+
       000000B9H   SFRSYM    DATA     BYTE      I2C0STAT
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 19
-
-
       000000BBH   SFRSYM    DATA     BYTE      I2C0DOUT
       000000BEH   SFRSYM    DATA     BYTE      CLU3FN
       00000096H   SFRSYM    DATA     BYTE      SBRLH1
@@ -1233,10 +1234,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000085H   SFRSYM    DATA     BYTE      CLU1MX
       000000B2H   SFRSYM    DATA     BYTE      ADC0CN1
       000000D8H.6 SFRSYM    DATA     BIT       PCA0CN0_CR
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 20
+
+
       000000A8H.2 SFRSYM    DATA     BIT       IE_EX1
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 20
-
-
       00000088H.5 SFRSYM    DATA     BIT       DACGCF0_D3SRC1
       00000091H   SFRSYM    DATA     BYTE      CLU2MX
       000000B3H   SFRSYM    DATA     BYTE      ADC0CN2
@@ -1298,10 +1299,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000B5H   SFRSYM    DATA     WORD      ADC0ASA
       000000E8H   SFRSYM    DATA     BYTE      CLIF0
       000000C0H.2 SFRSYM    DATA     BIT       SMB0CN0_ARBLOST
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 21
+
+
       000000B8H.5 SFRSYM    DATA     BIT       IP_PT2
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 21
-
-
       0000008AH   SFRSYM    DATA     BYTE      TL0
       000000D0H.5 SFRSYM    DATA     BIT       PSW_F0
       000000A8H.6 SFRSYM    DATA     BIT       IE_ESPI0
@@ -1363,10 +1364,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000C4H   SFRSYM    DATA     BYTE      ADC0GTH
       000000C8H.7 SFRSYM    DATA     BIT       TMR2CN0_TF2H
       000000C8H.3 SFRSYM    DATA     BIT       TMR2CN0_T2SPLIT
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 22
+
+
       000000D0H.6 SFRSYM    DATA     BIT       PSW_AC
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 22
-
-
       000000F8H   SFRSYM    DATA     BYTE      SPI0CN0
       000000C7H   SFRSYM    DATA     BYTE      HFO0CAL
       00000088H.5 SFRSYM    DATA     BIT       TCON_TF0
@@ -1428,10 +1429,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000C2H   SFRSYM    DATA     BYTE      SMB0DAT
       000000A0H.6 SFRSYM    DATA     BIT       BSP_DISP_CS
       000000CFH   SFRSYM    DATA     BYTE      TMR2H
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 23
+
+
       000000A1H   SFRSYM    DATA     BYTE      SPI0CFG
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 23
-
-
       00000095H   SFRSYM    DATA     BYTE      TMR3H
       000000EFH   SFRSYM    DATA     BYTE      HFOCN
       000000D3H   SFRSYM    DATA     BYTE      CRC0CNT
@@ -1493,10 +1494,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       ---         BLOCKEND  ---      ---       LVL=1
       0100078FH   LINE      CODE     ---       #57
       01000791H   LINE      CODE     ---       #58
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 24
+
+
       01000791H   LINE      CODE     ---       #59
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 24
-
-
       01000794H   LINE      CODE     ---       #61
       010007A6H   LINE      CODE     ---       #62
       010007A6H   LINE      CODE     ---       #64
@@ -1558,10 +1559,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       010005DEH   BLOCK     CODE     ---       LVL=0
       00000034H   SYMBOL    DATA     BYTE      row
       00000035H   SYMBOL    DATA     ---       line
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 25
+
+
       010005E6H   BLOCK     CODE     NEAR LAB  LVL=1
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 25
-
-
       00000007H   SYMBOL    DATA     BYTE      i
       00000038H   SYMBOL    DATA     ---       cmd
       ---         BLOCKEND  ---      ---       LVL=1
@@ -1623,10 +1624,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000EDH   SFRSYM    DATA     BYTE      EIP2
       00000098H.2 SFRSYM    DATA     BIT       SCON0_RB8
       000000CAH   SFRSYM    DATA     BYTE      TMR2RLL
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 26
+
+
       000000FCH   SFRSYM    DATA     BYTE      PCA0CPH0
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 26
-
-
       00000092H   SFRSYM    DATA     BYTE      TMR3RLL
       000000EAH   SFRSYM    DATA     BYTE      PCA0CPH1
       00000098H.3 SFRSYM    DATA     BIT       SCON0_TB8
@@ -1688,10 +1689,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000B3H   SFRSYM    DATA     BYTE      CLU1CF
       0000008EH   SFRSYM    DATA     BYTE      CKCON0
       000000E0H.1 SFRSYM    DATA     BIT       ACC_ACC1
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 27
+
+
       000000C9H   SFRSYM    DATA     BYTE      REG0CN
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 27
-
-
       000000CAH   SFRSYM    DATA     BYTE      CRC0IN
       000000B6H   SFRSYM    DATA     BYTE      CLU2CF
       000000A6H   SFRSYM    DATA     BYTE      CKCON1
@@ -1753,10 +1754,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000D0H.4 SFRSYM    DATA     BIT       PSW_RS1
       00000095H   SFRSYM    DATA     BYTE      SBRLL1
       000000C8H.2 SFRSYM    DATA     BIT       SCON1_RBX
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 28
+
+
       00000091H   SFRSYM    DATA     BYTE      DAC0CF0
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 28
-
-
       000000BCH   SFRSYM    DATA     BYTE      ADC0CF0
       000000C8H   SFRSYM    DATA     BIT       TMR2CN0_T2XCLK0
       00000093H   SFRSYM    DATA     BYTE      DAC1CF0
@@ -1818,10 +1819,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000F0H   SFRSYM    DATA     BYTE      B
       000000BEH   SFRSYM    DATA     BYTE      ADC0H
       000000FFH   SFRSYM    DATA     BYTE      I2C0ADM
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 29
+
+
       0000008AH   SFRSYM    DATA     BYTE      DAC1H
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 29
-
-
       00000090H.4 SFRSYM    DATA     BIT       BSP_LED_G
       00000088H.2 SFRSYM    DATA     BIT       DACGCF0_D1AMEN
       0000008CH   SFRSYM    DATA     BYTE      DAC2H
@@ -1883,10 +1884,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       0000009EH   SFRSYM    DATA     BYTE      UART1LIN
       0000009BH   SFRSYM    DATA     BYTE      CMP0CN0
       000000C6H   SFRSYM    DATA     BYTE      CLEN0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 30
+
+
       00000088H.1 SFRSYM    DATA     BIT       TCON_IE0
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 30
-
-
       000000A0H   SFRSYM    DATA     BIT       P2_B0
       00000090H.1 SFRSYM    DATA     BIT       P1_B1
       00000080H.2 SFRSYM    DATA     BIT       P0_B2
@@ -1948,10 +1949,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000098H.3 SFRSYM    DATA     BIT       TMR4CN0_T4SPLIT
       000000C8H.6 SFRSYM    DATA     BIT       TMR2CN0_TF2L
       00000098H.1 SFRSYM    DATA     BIT       SCON0_TI
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 31
+
+
       00000092H   SFRSYM    DATA     BYTE      SBUF1
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 31
-
-
       000000CDH   SFRSYM    DATA     BYTE      PCON1
       000000C6H   SFRSYM    DATA     BYTE      ADC0LTH
       00000088H   SFRSYM    DATA     BIT       TCON_IT0
@@ -2013,10 +2014,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000A4H   SFRSYM    DATA     BYTE      TMR4L
       000000D4H   SFRSYM    DATA     BYTE      TMR5L
       000000C8H.5 SFRSYM    DATA     BIT       TMR2CN0_TF2LEN
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 32
+
+
       000000F8H.6 SFRSYM    DATA     BIT       SPI0CN0_WCOL
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 32
-
-
       000000F8H.2 SFRSYM    DATA     BIT       SPI0CN0_NSSMD0
       000000D0H.7 SFRSYM    DATA     BIT       PSW_CY
       0000009DH   SFRSYM    DATA     BYTE      UART1FCN0
@@ -2078,10 +2079,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       010004FBH   LINE      CODE     ---       #32
       0100050FH   LINE      CODE     ---       #33
       0100051DH   LINE      CODE     ---       #34
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 33
+
+
       01000526H   LINE      CODE     ---       #35
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 33
-
-
       0100052AH   LINE      CODE     ---       #36
       01000541H   LINE      CODE     ---       #37
       01000541H   LINE      CODE     ---       #38
@@ -2143,10 +2144,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000098H.2 SFRSYM    DATA     BIT       SCON0_RB8
       000000CAH   SFRSYM    DATA     BYTE      TMR2RLL
       000000FCH   SFRSYM    DATA     BYTE      PCA0CPH0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 34
+
+
       00000092H   SFRSYM    DATA     BYTE      TMR3RLL
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 34
-
-
       000000EAH   SFRSYM    DATA     BYTE      PCA0CPH1
       00000098H.3 SFRSYM    DATA     BIT       SCON0_TB8
       000000F0H   SFRSYM    DATA     BIT       B_B0
@@ -2208,10 +2209,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       0000008EH   SFRSYM    DATA     BYTE      CKCON0
       000000E0H.1 SFRSYM    DATA     BIT       ACC_ACC1
       000000C9H   SFRSYM    DATA     BYTE      REG0CN
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 35
+
+
       000000CAH   SFRSYM    DATA     BYTE      CRC0IN
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 35
-
-
       000000B6H   SFRSYM    DATA     BYTE      CLU2CF
       000000A6H   SFRSYM    DATA     BYTE      CKCON1
       000000C8H.2 SFRSYM    DATA     BIT       TMR2CN0_TR2
@@ -2273,10 +2274,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000095H   SFRSYM    DATA     BYTE      SBRLL1
       000000C8H.2 SFRSYM    DATA     BIT       SCON1_RBX
       00000091H   SFRSYM    DATA     BYTE      DAC0CF0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 36
+
+
       000000BCH   SFRSYM    DATA     BYTE      ADC0CF0
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 36
-
-
       000000C8H   SFRSYM    DATA     BIT       TMR2CN0_T2XCLK0
       00000093H   SFRSYM    DATA     BYTE      DAC1CF0
       00000092H   SFRSYM    DATA     BYTE      DAC0CF1
@@ -2338,10 +2339,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000BEH   SFRSYM    DATA     BYTE      ADC0H
       000000FFH   SFRSYM    DATA     BYTE      I2C0ADM
       0000008AH   SFRSYM    DATA     BYTE      DAC1H
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 37
+
+
       00000090H.4 SFRSYM    DATA     BIT       BSP_LED_G
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 37
-
-
       00000088H.2 SFRSYM    DATA     BIT       DACGCF0_D1AMEN
       0000008CH   SFRSYM    DATA     BYTE      DAC2H
       0000008EH   SFRSYM    DATA     BYTE      DAC3H
@@ -2403,10 +2404,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       0000009BH   SFRSYM    DATA     BYTE      CMP0CN0
       000000C6H   SFRSYM    DATA     BYTE      CLEN0
       00000088H.1 SFRSYM    DATA     BIT       TCON_IE0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 38
+
+
       000000A0H   SFRSYM    DATA     BIT       P2_B0
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 38
-
-
       00000090H.1 SFRSYM    DATA     BIT       P1_B1
       00000080H.2 SFRSYM    DATA     BIT       P0_B2
       000000BFH   SFRSYM    DATA     BYTE      CMP1CN0
@@ -2468,10 +2469,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000C8H.6 SFRSYM    DATA     BIT       TMR2CN0_TF2L
       00000098H.1 SFRSYM    DATA     BIT       SCON0_TI
       00000092H   SFRSYM    DATA     BYTE      SBUF1
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 39
+
+
       000000CDH   SFRSYM    DATA     BYTE      PCON1
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 39
-
-
       000000C6H   SFRSYM    DATA     BYTE      ADC0LTH
       00000088H   SFRSYM    DATA     BIT       TCON_IT0
       000000C8H.1 SFRSYM    DATA     BIT       SCON1_TI
@@ -2533,10 +2534,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000D4H   SFRSYM    DATA     BYTE      TMR5L
       000000C8H.5 SFRSYM    DATA     BIT       TMR2CN0_TF2LEN
       000000F8H.6 SFRSYM    DATA     BIT       SPI0CN0_WCOL
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 40
+
+
       000000F8H.2 SFRSYM    DATA     BIT       SPI0CN0_NSSMD0
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 40
-
-
       000000D0H.7 SFRSYM    DATA     BIT       PSW_CY
       0000009DH   SFRSYM    DATA     BYTE      UART1FCN0
       000000DFH   SFRSYM    DATA     BYTE      SPI0PCF
@@ -2598,10 +2599,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
 
       0100076CH   BLOCK     CODE     ---       LVL=0
       00000034H   SYMBOL    DATA     ---       line
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 41
+
+
       00000005H   SYMBOL    DATA     BYTE      xstart
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 41
-
-
       00000003H   SYMBOL    DATA     BYTE      xstop
       01000770H   BLOCK     CODE     NEAR LAB  LVL=1
       00000004H   SYMBOL    DATA     BYTE      x
@@ -2663,8 +2664,8 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000005H   SYMBOL    DATA     BYTE      i
       00000001H   SYMBOL    DATA     BYTE      posx
       00000005H   SYMBOL    DATA     BYTE      i
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 42
 
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 42
 
 
       ---         MODULE    ---      ---       RETARGETIO
@@ -2728,10 +2729,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000B8H   SFRSYM    DATA     BIT       PX0
       000000B8H.2 SFRSYM    DATA     BIT       PX1
       00000083H   SFRSYM    DATA     BYTE      DPH
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 43
+
+
       00000082H   SFRSYM    DATA     BYTE      DPL
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 43
-
-
       00000098H.4 SFRSYM    DATA     BIT       REN
       000000B0H   SFRSYM    DATA     BIT       RXD
       000000B0H.1 SFRSYM    DATA     BIT       TXD
@@ -2793,10 +2794,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000A2H   SFRSYM    DATA     BYTE      TMR4RLL
       000000ECH   SFRSYM    DATA     BYTE      PCA0CPH2
       000000F0H.1 SFRSYM    DATA     BIT       B_B1
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 44
+
+
       000000C3H   SFRSYM    DATA     WORD      ADC0GT
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 44
-
-
       000000D2H   SFRSYM    DATA     BYTE      TMR5RLL
       000000F5H   SFRSYM    DATA     BYTE      PCA0CPH3
       000000BDH   SFRSYM    DATA     BYTE      I2C0SLAD
@@ -2858,10 +2859,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000BFH   SFRSYM    DATA     BYTE      CLU3CF
       000000E0H.3 SFRSYM    DATA     BIT       ACC_ACC3
       00000081H   SFRSYM    DATA     BYTE      SP
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 45
+
+
       0000009DH   SFRSYM    DATA     BYTE      CMP0MD
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 45
-
-
       000000E0H.4 SFRSYM    DATA     BIT       ACC_ACC4
       000000B1H   SFRSYM    DATA     BYTE      LFO0CN
       000000ABH   SFRSYM    DATA     BYTE      CMP1MD
@@ -2923,10 +2924,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000C8H.1 SFRSYM    DATA     BIT       TMR2CN0_T2XCLK1
       000000C8H.3 SFRSYM    DATA     BIT       SCON1_TBX
       000000E8H.7 SFRSYM    DATA     BIT       ADC0CN0_ADEN
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 46
+
+
       00000089H   SFRSYM    DATA     BYTE      TMOD
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 46
-
-
       00000088H   SFRSYM    DATA     BYTE      TCON
       00000095H   SFRSYM    DATA     BYTE      DAC2CF0
       00000094H   SFRSYM    DATA     BYTE      DAC1CF1
@@ -2988,10 +2989,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000CAH   SFRSYM    DATA     WORD      TMR2RL
       00000084H   SFRSYM    DATA     BYTE      DAC0L
       000000BDH   SFRSYM    DATA     BYTE      ADC0L
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 47
+
+
       00000092H   SFRSYM    DATA     WORD      TMR3RL
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 47
-
-
       00000089H   SFRSYM    DATA     BYTE      DAC1L
       000000A2H   SFRSYM    DATA     WORD      TMR4RL
       000000D8H   SFRSYM    DATA     BYTE      PCA0CN0
@@ -3053,10 +3054,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000088H.3 SFRSYM    DATA     BIT       TCON_IE1
       000000B0H   SFRSYM    DATA     BIT       P3_B0
       000000A0H.1 SFRSYM    DATA     BIT       P2_B1
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 48
+
+
       00000090H.2 SFRSYM    DATA     BIT       P1_B2
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 48
-
-
       00000080H.3 SFRSYM    DATA     BIT       P0_B3
       000000C0H   SFRSYM    DATA     BYTE      SMB0CN0
       000000ACH   SFRSYM    DATA     BYTE      CMP1CN1
@@ -3118,10 +3119,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000FDH   SFRSYM    DATA     BYTE      P0MAT
       000000CBH   SFRSYM    DATA     BYTE      CRC0DAT
       000000C0H.7 SFRSYM    DATA     BIT       TMR5CN0_TF5H
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 49
+
+
       000000C0H.3 SFRSYM    DATA     BIT       TMR5CN0_T5SPLIT
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 49
-
-
       00000088H.2 SFRSYM    DATA     BIT       TCON_IT1
       000000D7H   SFRSYM    DATA     BYTE      SFRSTACK
       00000098H   SFRSYM    DATA     BYTE      SCON0
@@ -3183,10 +3184,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000ADH   SFRSYM    DATA     BYTE      I2C0FCN0
       000000F8H.3 SFRSYM    DATA     BIT       SPI0CN0_NSSMD1
       000000BDH   SFRSYM    DATA     WORD      ADC0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 50
+
+
       000000D8H   SFRSYM    DATA     BYTE      UART1FCN1
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 50
-
-
       000000ABH   SFRSYM    DATA     BYTE      I2C0FCN1
       000000E8H   SFRSYM    DATA     BIT       CLIF0_C0FIF
       00000098H.5 SFRSYM    DATA     BIT       TMR4CN0_TF4LEN
@@ -3248,10 +3249,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       010004B0H   LINE      CODE     ---       #100
       010004B3H   LINE      CODE     ---       #103
       010004B6H   LINE      CODE     ---       #106
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 51
+
+
       010004BBH   LINE      CODE     ---       #107
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 51
-
-
       010004BBH   LINE      CODE     ---       #108
       010004BEH   LINE      CODE     ---       #109
       010004CBH   LINE      CODE     ---       #110
@@ -3313,10 +3314,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000098H.3 SFRSYM    DATA     BIT       SCON0_TB8
       000000F0H   SFRSYM    DATA     BIT       B_B0
       00000082H   SFRSYM    DATA     WORD      DP
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 52
+
+
       000000A2H   SFRSYM    DATA     BYTE      TMR4RLL
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 52
-
-
       000000ECH   SFRSYM    DATA     BYTE      PCA0CPH2
       000000F0H.1 SFRSYM    DATA     BIT       B_B1
       000000C3H   SFRSYM    DATA     WORD      ADC0GT
@@ -3378,10 +3379,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000A6H   SFRSYM    DATA     BYTE      CKCON1
       000000C8H.2 SFRSYM    DATA     BIT       TMR2CN0_TR2
       000000E0H.2 SFRSYM    DATA     BIT       ACC_ACC2
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 53
+
+
       000000BFH   SFRSYM    DATA     BYTE      CLU3CF
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 53
-
-
       000000E0H.3 SFRSYM    DATA     BIT       ACC_ACC3
       00000081H   SFRSYM    DATA     BYTE      SP
       0000009DH   SFRSYM    DATA     BYTE      CMP0MD
@@ -3443,10 +3444,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000093H   SFRSYM    DATA     BYTE      DAC1CF0
       00000092H   SFRSYM    DATA     BYTE      DAC0CF1
       000000B9H   SFRSYM    DATA     BYTE      ADC0CF1
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 54
+
+
       000000C8H.1 SFRSYM    DATA     BIT       TMR2CN0_T2XCLK1
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 54
-
-
       000000C8H.3 SFRSYM    DATA     BIT       SCON1_TBX
       000000E8H.7 SFRSYM    DATA     BIT       ADC0CN0_ADEN
       00000089H   SFRSYM    DATA     BYTE      TMOD
@@ -3508,10 +3509,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       0000008CH   SFRSYM    DATA     BYTE      DAC2H
       0000008EH   SFRSYM    DATA     BYTE      DAC3H
       00000088H.6 SFRSYM    DATA     BIT       DACGCF0_D3AMEN
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 55
+
+
       000000CAH   SFRSYM    DATA     WORD      TMR2RL
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 55
-
-
       00000084H   SFRSYM    DATA     BYTE      DAC0L
       000000BDH   SFRSYM    DATA     BYTE      ADC0L
       00000092H   SFRSYM    DATA     WORD      TMR3RL
@@ -3573,10 +3574,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000080H.2 SFRSYM    DATA     BIT       P0_B2
       000000BFH   SFRSYM    DATA     BYTE      CMP1CN0
       00000099H   SFRSYM    DATA     BYTE      CMP0CN1
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 56
+
+
       00000088H.3 SFRSYM    DATA     BIT       TCON_IE1
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 56
-
-
       000000B0H   SFRSYM    DATA     BIT       P3_B0
       000000A0H.1 SFRSYM    DATA     BIT       P2_B1
       00000090H.2 SFRSYM    DATA     BIT       P1_B2
@@ -3638,10 +3639,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000088H   SFRSYM    DATA     BIT       TCON_IT0
       000000C8H.1 SFRSYM    DATA     BIT       SCON1_TI
       000000EFH   SFRSYM    DATA     BYTE      RSTSRC
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 57
+
+
       000000FDH   SFRSYM    DATA     BYTE      P0MAT
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 57
-
-
       000000CBH   SFRSYM    DATA     BYTE      CRC0DAT
       000000C0H.7 SFRSYM    DATA     BIT       TMR5CN0_TF5H
       000000C0H.3 SFRSYM    DATA     BIT       TMR5CN0_T5SPLIT
@@ -3703,10 +3704,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       0000009DH   SFRSYM    DATA     BYTE      UART1FCN0
       000000DFH   SFRSYM    DATA     BYTE      SPI0PCF
       000000A3H   SFRSYM    DATA     BYTE      SPI0DAT
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 58
+
+
       000000ADH   SFRSYM    DATA     BYTE      I2C0FCN0
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 58
-
-
       000000F8H.3 SFRSYM    DATA     BIT       SPI0CN0_NSSMD1
       000000BDH   SFRSYM    DATA     WORD      ADC0
       000000D8H   SFRSYM    DATA     BYTE      UART1FCN1
@@ -3768,10 +3769,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000080H   SFRSYM    DATA     BYTE      P0
       000000C8H.6 SFRSYM    DATA     BIT       SCON1_PERR
       000000D0H.2 SFRSYM    DATA     BIT       PSW_OV
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 59
+
+
       00000086H   SFRSYM    DATA     BYTE      XOSC0CN
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 59
-
-
       00000090H   SFRSYM    DATA     BYTE      P1
       000000F8H.1 SFRSYM    DATA     BIT       SPI0CN0_TXNF
       00000097H   SFRSYM    DATA     BYTE      WDTCN
@@ -3833,10 +3834,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000DBH   SFRSYM    DATA     BYTE      PCA0CPM1
       000000EBH   SFRSYM    DATA     BYTE      PCA0CPL2
       000000A1H   SFRSYM    DATA     BYTE      ADC0ASCF
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 60
+
+
       000000B6H   SFRSYM    DATA     BYTE      ADC0ASAH
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 60
-
-
       000000F0H.5 SFRSYM    DATA     BIT       B_B5
       000000E8H.6 SFRSYM    DATA     BIT       ADC0CN0_IPOEN
       000000E8H   SFRSYM    DATA     BIT       ADC0CN0_TEMPE
@@ -3898,10 +3899,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000C0H.2 SFRSYM    DATA     BIT       TMR5CN0_TR5
       000000D8H.3 SFRSYM    DATA     BIT       PCA0CN0_CCF3
       000000A4H   SFRSYM    DATA     WORD      TMR4
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 61
+
+
       00000094H   SFRSYM    DATA     BYTE      SBCON1
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 61
-
-
       000000D8H.4 SFRSYM    DATA     BIT       PCA0CN0_CCF4
       000000D4H   SFRSYM    DATA     WORD      TMR5
       000000C0H.3 SFRSYM    DATA     BIT       SMB0CN0_ACKRQ
@@ -3963,10 +3964,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000A8H.3 SFRSYM    DATA     BIT       IE_ET1
       000000D4H   SFRSYM    DATA     BYTE      P0SKIP
       000000D1H   SFRSYM    DATA     BYTE      CLOUT0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 62
+
+
       000000D8H   SFRSYM    DATA     BIT       UART1FCN1_RIE
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 62
-
-
       000000C0H   SFRSYM    DATA     BIT       TMR5CN0_T5XCLK0
       000000A8H.5 SFRSYM    DATA     BIT       IE_ET2
       00000088H   SFRSYM    DATA     BIT       DACGCF0_D1SRC0
@@ -4028,10 +4029,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000086H   SFRSYM    DATA     BYTE      CRC0CN1
       000000B8H.4 SFRSYM    DATA     BIT       IP_PS0
       00000084H   SFRSYM    DATA     WORD      PCA0CP4
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 63
+
+
       000000FAH   SFRSYM    DATA     BYTE      UART1FCT
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 63
-
-
       0000008DH   SFRSYM    DATA     BYTE      TH1
       000000FAH   SFRSYM    DATA     BYTE      PCA0H
       000000F5H   SFRSYM    DATA     BYTE      I2C0FCT
@@ -4093,10 +4094,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000B0H.4 SFRSYM    DATA     BIT       P3_B4
       000000A0H.5 SFRSYM    DATA     BIT       P2_B5
       00000090H.6 SFRSYM    DATA     BIT       P1_B6
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 64
+
+
       00000080H.7 SFRSYM    DATA     BIT       P0_B7
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 64
-
-
       00000098H.2 SFRSYM    DATA     BIT       DACGCF1_D2UDIS
       000000C5H   SFRSYM    DATA     BYTE      SMB0RXLN
       000000F6H   SFRSYM    DATA     BYTE      EIP2H
@@ -4158,10 +4159,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000091H   SFRSYM    DATA     BYTE      TMR3CN0
       000000FDH   SFRSYM    DATA     BYTE      TMR2CN1
       00000098H   SFRSYM    DATA     BYTE      TMR4CN0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 65
+
+
       000000FEH   SFRSYM    DATA     BYTE      TMR3CN1
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 65
-
-
       000000C0H   SFRSYM    DATA     BYTE      TMR5CN0
       000000FFH   SFRSYM    DATA     BYTE      TMR4CN1
       000000D7H   SFRSYM    DATA     BYTE      SMB0ADR
@@ -4223,10 +4224,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       010008B7H   SYMBOL    CODE     ---       SPI0_internalInit
 
       010008B7H   BLOCK     CODE     ---       LVL=0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 66
+
+
       010008B7H   LINE      CODE     ---       #50
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 66
-
-
       010008B7H   LINE      CODE     ---       #51
       010008B7H   LINE      CODE     ---       #53
       010008BDH   LINE      CODE     ---       #54
@@ -4288,10 +4289,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       01000551H   LINE      CODE     ---       #603
       01000553H   LINE      CODE     ---       #604
       01000557H   LINE      CODE     ---       #605
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 67
+
+
       0100055BH   LINE      CODE     ---       #606
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 67
-
-
       01000560H   LINE      CODE     ---       #608
       01000565H   LINE      CODE     ---       #611
       01000568H   LINE      CODE     ---       #612
@@ -4353,10 +4354,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       01000343H   LINE      CODE     ---       #780
       01000343H   LINE      CODE     ---       #781
       01000343H   LINE      CODE     ---       #783
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 68
+
+
       01000349H   LINE      CODE     ---       #784
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 68
-
-
       01000349H   LINE      CODE     ---       #785
       0100034BH   LINE      CODE     ---       #786
       0100034BH   LINE      CODE     ---       #788
@@ -4418,10 +4419,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000A6H   SFRSYM    DATA     BYTE      P2MDOUT
       000000A8H   SFRSYM    DATA     BYTE      IE
       00000093H   SFRSYM    DATA     BYTE      TMR3RLH
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 69
+
+
       0000009CH   SFRSYM    DATA     BYTE      P3MDOUT
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 69
-
-
       000000A3H   SFRSYM    DATA     BYTE      TMR4RLH
       000000BBH   SFRSYM    DATA     BYTE      EIP1
       000000D3H   SFRSYM    DATA     BYTE      TMR5RLH
@@ -4483,10 +4484,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000E7H   SFRSYM    DATA     BYTE      EMI0CN
       000000C0H.5 SFRSYM    DATA     BIT       SMB0CN0_STA
       000000E3H   SFRSYM    DATA     BYTE      XBR2
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 70
+
+
       000000B1H   SFRSYM    DATA     BYTE      CLU0CF
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 70
-
-
       000000BBH   SFRSYM    DATA     BYTE      ADC0MX
       000000E0H   SFRSYM    DATA     BIT       ACC_ACC0
       000000D1H   SFRSYM    DATA     BYTE      REF0CN
@@ -4548,10 +4549,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000EEH   SFRSYM    DATA     BYTE      P1MASK
       000000FCH   SFRSYM    DATA     BYTE      P2MASK
       000000D0H.3 SFRSYM    DATA     BIT       PSW_RS0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 71
+
+
       000000D8H.7 SFRSYM    DATA     BIT       PCA0CN0_CF
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 71
-
-
       0000009EH   SFRSYM    DATA     BYTE      PCA0CENT
       000000BAH   SFRSYM    DATA     BYTE      I2C0CN0
       000000D2H   SFRSYM    DATA     BYTE      CRC0ST
@@ -4613,10 +4614,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000098H.7 SFRSYM    DATA     BIT       SCON0_SMODE
       000000B5H   SFRSYM    DATA     BYTE      DEVICEID
       000000A9H   SFRSYM    DATA     BYTE      CLKSEL
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 72
+
+
       000000F8H   SFRSYM    DATA     BIT       SPI0CN0_SPIEN
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 72
-
-
       00000085H   SFRSYM    DATA     BYTE      DAC0H
       000000F0H   SFRSYM    DATA     BYTE      B
       000000BEH   SFRSYM    DATA     BYTE      ADC0H
@@ -4678,10 +4679,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000080H.1 SFRSYM    DATA     BIT       P0_B1
       000000B8H.2 SFRSYM    DATA     BIT       IP_PX1
       00000088H.7 SFRSYM    DATA     BIT       DACGCF0_D23REFSL
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 73
+
+
       0000009EH   SFRSYM    DATA     BYTE      UART1LIN
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 73
-
-
       0000009BH   SFRSYM    DATA     BYTE      CMP0CN0
       000000C6H   SFRSYM    DATA     BYTE      CLEN0
       00000088H.1 SFRSYM    DATA     BIT       TCON_IE0
@@ -4743,10 +4744,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000F2H   SFRSYM    DATA     BYTE      IPH
       000000C3H   SFRSYM    DATA     BYTE      ADC0GTL
       00000098H.7 SFRSYM    DATA     BIT       TMR4CN0_TF4H
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 74
+
+
       00000098H.3 SFRSYM    DATA     BIT       TMR4CN0_T4SPLIT
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 74
-
-
       000000C8H.6 SFRSYM    DATA     BIT       TMR2CN0_TF2L
       00000098H.1 SFRSYM    DATA     BIT       SCON0_TI
       00000092H   SFRSYM    DATA     BYTE      SBUF1
@@ -4808,10 +4809,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000A8H.7 SFRSYM    DATA     BIT       IE_EA
       000000A4H   SFRSYM    DATA     BYTE      TMR4L
       000000D4H   SFRSYM    DATA     BYTE      TMR5L
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 75
+
+
       000000C8H.5 SFRSYM    DATA     BIT       TMR2CN0_TF2LEN
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 75
-
-
       000000F8H.6 SFRSYM    DATA     BIT       SPI0CN0_WCOL
       000000F8H.2 SFRSYM    DATA     BIT       SPI0CN0_NSSMD0
       000000D0H.7 SFRSYM    DATA     BIT       PSW_CY
@@ -4873,14 +4874,14 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       01000822H   LINE      CODE     ---       #122
       01000822H   LINE      CODE     ---       #124
       ---         BLOCKEND  ---      ---       LVL=0
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 76
 
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 76
 
 
       ---         MODULE    ---      ---       INITDEVICE
       010007EDH   PUBLIC    CODE     ---       TIMER16_4_enter_DefaultMode_from_RESET
       01000824H   PUBLIC    CODE     ---       TIMER16_3_enter_DefaultMode_from_RESET
-      01000022H   PUBLIC    CODE     ---       PORTS_3_enter_DefaultMode_from_RESET
+      0100002EH   PUBLIC    CODE     ---       PORTS_3_enter_DefaultMode_from_RESET
       010008E6H   PUBLIC    CODE     ---       SPI_0_enter_DefaultMode_from_RESET
       0100092BH   PUBLIC    CODE     ---       ADC_0_enter_DefaultMode_from_RESET
       010007D1H   PUBLIC    CODE     ---       INTERRUPT_0_enter_DefaultMode_from_RESET
@@ -4938,10 +4939,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000098H.3 SFRSYM    DATA     BIT       SCON0_TB8
       000000F0H   SFRSYM    DATA     BIT       B_B0
       00000082H   SFRSYM    DATA     WORD      DP
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 77
+
+
       000000A2H   SFRSYM    DATA     BYTE      TMR4RLL
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 77
-
-
       000000ECH   SFRSYM    DATA     BYTE      PCA0CPH2
       000000F0H.1 SFRSYM    DATA     BIT       B_B1
       000000C3H   SFRSYM    DATA     WORD      ADC0GT
@@ -5003,10 +5004,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000A6H   SFRSYM    DATA     BYTE      CKCON1
       000000C8H.2 SFRSYM    DATA     BIT       TMR2CN0_TR2
       000000E0H.2 SFRSYM    DATA     BIT       ACC_ACC2
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 78
+
+
       000000BFH   SFRSYM    DATA     BYTE      CLU3CF
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 78
-
-
       000000E0H.3 SFRSYM    DATA     BIT       ACC_ACC3
       00000081H   SFRSYM    DATA     BYTE      SP
       0000009DH   SFRSYM    DATA     BYTE      CMP0MD
@@ -5068,10 +5069,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000093H   SFRSYM    DATA     BYTE      DAC1CF0
       00000092H   SFRSYM    DATA     BYTE      DAC0CF1
       000000B9H   SFRSYM    DATA     BYTE      ADC0CF1
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 79
+
+
       000000C8H.1 SFRSYM    DATA     BIT       TMR2CN0_T2XCLK1
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 79
-
-
       000000C8H.3 SFRSYM    DATA     BIT       SCON1_TBX
       000000E8H.7 SFRSYM    DATA     BIT       ADC0CN0_ADEN
       00000089H   SFRSYM    DATA     BYTE      TMOD
@@ -5133,10 +5134,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       00000084H   SFRSYM    DATA     BYTE      DAC0L
       000000BDH   SFRSYM    DATA     BYTE      ADC0L
       00000092H   SFRSYM    DATA     WORD      TMR3RL
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 80
+
+
       00000089H   SFRSYM    DATA     BYTE      DAC1L
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 80
-
-
       000000A2H   SFRSYM    DATA     WORD      TMR4RL
       000000D8H   SFRSYM    DATA     BYTE      PCA0CN0
       0000008BH   SFRSYM    DATA     BYTE      DAC2L
@@ -5198,10 +5199,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000A0H.1 SFRSYM    DATA     BIT       P2_B1
       00000090H.2 SFRSYM    DATA     BIT       P1_B2
       00000080H.3 SFRSYM    DATA     BIT       P0_B3
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 81
+
+
       000000C0H   SFRSYM    DATA     BYTE      SMB0CN0
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 81
-
-
       000000ACH   SFRSYM    DATA     BYTE      CMP1CN1
       000000B0H.1 SFRSYM    DATA     BIT       P3_B1
       000000A0H.2 SFRSYM    DATA     BIT       P2_B2
@@ -5263,10 +5264,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000C0H.7 SFRSYM    DATA     BIT       TMR5CN0_TF5H
       000000C0H.3 SFRSYM    DATA     BIT       TMR5CN0_T5SPLIT
       00000088H.2 SFRSYM    DATA     BIT       TCON_IT1
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 82
+
+
       000000D7H   SFRSYM    DATA     BYTE      SFRSTACK
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 82
-
-
       00000098H   SFRSYM    DATA     BYTE      SCON0
       000000F6H   SFRSYM    DATA     BYTE      PRTDRV
       000000EDH   SFRSYM    DATA     BYTE      P1MAT
@@ -5328,10 +5329,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000ABH   SFRSYM    DATA     BYTE      I2C0FCN1
       000000E8H   SFRSYM    DATA     BIT       CLIF0_C0FIF
       00000098H.5 SFRSYM    DATA     BIT       TMR4CN0_TF4LEN
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 83
+
+
       000000E8H.2 SFRSYM    DATA     BIT       CLIF0_C1FIF
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 83
-
-
       000000D0H   SFRSYM    DATA     BYTE      PSW
       000000F7H   SFRSYM    DATA     BYTE      PCA0PWM
       000000E8H.4 SFRSYM    DATA     BIT       CLIF0_C2FIF
@@ -5393,10 +5394,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       01000907H   LINE      CODE     ---       #180
       01000907H   LINE      CODE     ---       #194
       0100090AH   LINE      CODE     ---       #210
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 84
+
+
       0100090DH   LINE      CODE     ---       #211
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 84
-
-
       01000910H   LINE      CODE     ---       #221
       ---         BLOCKEND  ---      ---       LVL=0
 
@@ -5458,10 +5459,10 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       010007E6H   LINE      CODE     ---       #494
       010007E9H   LINE      CODE     ---       #495
       010007ECH   LINE      CODE     ---       #499
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 85
+
+
       ---         BLOCKEND  ---      ---       LVL=0
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 85
-
-
 
       0100092BH   BLOCK     CODE     ---       LVL=0
       0100092BH   LINE      CODE     ---       #501
@@ -5479,42 +5480,43 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       010008F2H   LINE      CODE     ---       #586
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000022H   BLOCK     CODE     ---       LVL=0
-      01000022H   LINE      CODE     ---       #588
-      01000022H   LINE      CODE     ---       #598
+      0100002EH   BLOCK     CODE     ---       LVL=0
+      0100002EH   LINE      CODE     ---       #588
+      0100002EH   LINE      CODE     ---       #601
+      01000031H   LINE      CODE     ---       #609
       ---         BLOCKEND  ---      ---       LVL=0
 
       01000824H   BLOCK     CODE     ---       LVL=0
       01000824H   BLOCK     CODE     NEAR LAB  LVL=1
       00000007H   SYMBOL    DATA     BYTE      TMR3CN0_TR3_save
       ---         BLOCKEND  ---      ---       LVL=1
-      01000824H   LINE      CODE     ---       #600
-      01000824H   LINE      CODE     ---       #604
-      01000828H   LINE      CODE     ---       #606
-      0100082BH   LINE      CODE     ---       #619
-      0100082EH   LINE      CODE     ---       #626
-      01000831H   LINE      CODE     ---       #633
-      01000834H   LINE      CODE     ---       #640
-      01000837H   LINE      CODE     ---       #647
-      0100083AH   LINE      CODE     ---       #652
-      0100083CH   LINE      CODE     ---       #655
+      01000824H   LINE      CODE     ---       #611
+      01000824H   LINE      CODE     ---       #615
+      01000828H   LINE      CODE     ---       #617
+      0100082BH   LINE      CODE     ---       #630
+      0100082EH   LINE      CODE     ---       #637
+      01000831H   LINE      CODE     ---       #644
+      01000834H   LINE      CODE     ---       #651
+      01000837H   LINE      CODE     ---       #658
+      0100083AH   LINE      CODE     ---       #663
+      0100083CH   LINE      CODE     ---       #666
       ---         BLOCKEND  ---      ---       LVL=0
 
       010007EDH   BLOCK     CODE     ---       LVL=0
       010007EDH   BLOCK     CODE     NEAR LAB  LVL=1
       00000007H   SYMBOL    DATA     BYTE      TMR4CN0_TR4_save
       ---         BLOCKEND  ---      ---       LVL=1
-      010007EDH   LINE      CODE     ---       #657
-      010007EDH   LINE      CODE     ---       #661
-      010007F0H   LINE      CODE     ---       #662
-      010007F4H   LINE      CODE     ---       #664
-      010007F7H   LINE      CODE     ---       #677
-      010007FAH   LINE      CODE     ---       #684
-      010007FDH   LINE      CODE     ---       #691
-      01000800H   LINE      CODE     ---       #698
-      01000803H   LINE      CODE     ---       #705
-      01000806H   LINE      CODE     ---       #710
-      01000808H   LINE      CODE     ---       #713
+      010007EDH   LINE      CODE     ---       #668
+      010007EDH   LINE      CODE     ---       #672
+      010007F0H   LINE      CODE     ---       #673
+      010007F4H   LINE      CODE     ---       #675
+      010007F7H   LINE      CODE     ---       #688
+      010007FAH   LINE      CODE     ---       #695
+      010007FDH   LINE      CODE     ---       #702
+      01000800H   LINE      CODE     ---       #709
+      01000803H   LINE      CODE     ---       #716
+      01000806H   LINE      CODE     ---       #721
+      01000808H   LINE      CODE     ---       #724
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ?C_STARTUP
@@ -5522,11 +5524,11 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       000000E0H   SFRSYM    DATA     BYTE      ACC
       000000F0H   SFRSYM    DATA     BYTE      B
       00000083H   SFRSYM    DATA     BYTE      DPH
+LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  15:45:00  PAGE 86
+
+
       00000082H   SFRSYM    DATA     BYTE      DPL
       000000A0H   SFRSYM    DATA     BYTE      PPAGE_SFR
-LX51 LINKER/LOCATER V4.66.30.0                                                        05/07/2017  14:29:26  PAGE 86
-
-
       00000081H   SFRSYM    DATA     BYTE      SP
       00000000H   SYMBOL    NUMBER   ---       IBPSTACK
       00000100H   SYMBOL    NUMBER   ---       IBPSTACKTOP
@@ -5578,5 +5580,5 @@ SYMBOL TABLE OF MODULE:  UARTISTICFUCK.OMF.CRBUILD (DISP)
       ---         MODULE    ---      ---       ?C?ULDIV
       01000183H   PUBLIC    CODE     ---       ?C?ULDIV
 
-Program Size: data=71.5 xdata=556 const=800 code=2352
+Program Size: data=71.5 xdata=556 const=800 code=2355
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

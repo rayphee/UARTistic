@@ -79,7 +79,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding=".git/lfs|.git/objects/info|.git/objects/pack|.git/refs/tags|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
@@ -152,7 +152,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding=".git/lfs|.git/objects/info|.git/objects/pack|.git/refs/tags|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
@@ -160,7 +160,7 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
 	</storageModule>
-	<storageModule moduleId="com.silabs.ss.framework.ide.project.core.cpp" project.generation="169" projectCommon.boardIds="brd5202a:0.0.0.A02" projectCommon.buildArtifactType="EXE" projectCommon.importModeId="LINK_LIBRARIES" projectCommon.partId="mcu.8051.efm8.bb3.efm8bb31f64g-b-qfn32" projectCommon.sdkId="com.silabs.sdk.8051:4.0.3._847868633"/>
+	<storageModule moduleId="com.silabs.ss.framework.ide.project.core.cpp" project.generation="1" projectCommon.boardIds="brd5202a:0.0.0.A02" projectCommon.buildArtifactType="EXE" projectCommon.importModeId="LINK_LIBRARIES" projectCommon.partId="mcu.8051.efm8.bb3.efm8bb31f64g-b-qfn32" projectCommon.sdkId="com.silabs.sdk.8051:4.0.3._847868633"/>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="timerlib.com.silabs.ss.framework.ide.project.core.cdt.cdtMbsProjectType.870742426" name="SLS CDT Project" projectType="com.silabs.ss.framework.ide.project.core.cdt.cdtMbsProjectType"/>
 	</storageModule>

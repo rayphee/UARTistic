@@ -590,6 +590,17 @@ extern void PORTS_3_enter_DefaultMode_from_RESET(void) {
 	// [P3 - Port 3 Pin Latch]$
 
 	// $[P3MDOUT - Port 3 Output Mode]
+	/***********************************************************************
+	 - P3.0 output is open-drain
+	 - P3.1 output is open-drain
+	 - P3.2 output is open-drain
+	 - P3.3 output is open-drain
+	 - P3.4 output is push-pull
+	 - P3.7 output is open-drain
+	 ***********************************************************************/
+	P3MDOUT = P3MDOUT_B0__OPEN_DRAIN | P3MDOUT_B1__OPEN_DRAIN
+			| P3MDOUT_B2__OPEN_DRAIN | P3MDOUT_B3__OPEN_DRAIN
+			| P3MDOUT_B4__PUSH_PULL | P3MDOUT_B7__OPEN_DRAIN;
 	// [P3MDOUT - Port 3 Output Mode]$
 
 	// $[P3MDIN - Port 3 Input Mode]

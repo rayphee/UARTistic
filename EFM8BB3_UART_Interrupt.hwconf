@@ -50,6 +50,8 @@
     <property object="P2.3" propertyId="ports.settings.skip" value="Skipped"/>
     <property object="P3.0" propertyId="ports.settings.label" value="DAC0"/>
     <property object="P3.1" propertyId="ports.settings.label" value="DAC1"/>
+    <property object="P3.4" propertyId="ports.settings.iomode" value="Digital Push-Pull Output"/>
+    <property object="P3.4" propertyId="ports.settings.outputmode" value="Push-pull"/>
     <property object="PBCFG_0" propertyId="pbcfg.settings.enablecrossbar" value="Enabled"/>
     <property object="SPI_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="SPI_0" propertyId="spi.clockrate.spiclockfrequencyactual" value="1.021 MHz"/>
