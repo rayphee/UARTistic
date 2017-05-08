@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   RETARGETSERIAL                                                    05/07/2017 19:52:11 PAGE 1   
+C51 COMPILER V9.53.0.0   RETARGETSERIAL                                                    05/08/2017 17:55:01 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE RETARGETSERIAL
@@ -13,10 +13,11 @@ COMPILER INVOKED BY: Z:\Applications\Simplicity Studio.app\Contents\Eclipse\deve
                     -nts/Eclipse/developer/sdks/8051/v4.0.3//Device/EFM8BB3/peripheral_driver/inc;/Applications/Simplicity Studio.app/Content
                     -s/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_memory_lcd/inc;/Applications/Simplicity Studio.app/Conten
                     -ts/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_memory_lcd/inc/graphics;/Applications/Simplicity Studio.
-                    -app/Contents/Eclipse/developer/sdks/8051/v4.0.3//Device/shared/si8051base;/Applications/Simplicity Studio.app/Contents/E
-                    -clipse/developer/sdks/8051/v4.0.3//Device/EFM8BB3/inc;/Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdk
-                    -s/8051/v4.0.3//kits/common/drivers/efm8_retargetserial) PRINT(.\lib/bsp/efm8_retargetserial/retargetserial.lst) COND PAG
-                    -EWIDTH(120) PAGELENGTH(65) OBJECT(.\lib/bsp/efm8_retargetserial/retargetserial.OBJ)
+                    -app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_joystick;/Applications/Simplicity Studio.app/C
+                    -ontents/Eclipse/developer/sdks/8051/v4.0.3//Device/shared/si8051base;/Applications/Simplicity Studio.app/Contents/Eclips
+                    -e/developer/sdks/8051/v4.0.3//Device/EFM8BB3/inc;/Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/805
+                    -1/v4.0.3//kits/common/drivers/efm8_retargetserial) PRINT(.\lib/bsp/efm8_retargetserial/retargetserial.lst) COND PAGEWIDT
+                    -H(120) PAGELENGTH(65) OBJECT(.\lib/bsp/efm8_retargetserial/retargetserial.OBJ)
 
 line level    source
 
@@ -62,9 +63,9 @@ line level    source
   40   1        while (!TI);
   41   1        TI = 0;
   42   1        return (SBUF = c);
-  43   1      }
-C51 COMPILER V9.53.0.0   RETARGETSERIAL                                                    05/07/2017 19:52:11 PAGE 2   
+C51 COMPILER V9.53.0.0   RETARGETSERIAL                                                    05/08/2017 17:55:01 PAGE 2   
 
+  43   1      }
   44          
   45          #elif defined __ICC8051__
               

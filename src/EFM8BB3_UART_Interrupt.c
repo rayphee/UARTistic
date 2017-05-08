@@ -56,7 +56,7 @@
 #include "render.h"
 #include "../lib/bsp/efm8_memory_lcd/inc/render-extended.h"
 #include "disp.h"
-//#include "spi.h"
+#include "joystick.h"
 #include "InitDevice.h"
 
 //-----------------------------------------------------------------------------
@@ -76,25 +76,87 @@ SI_SBIT (BC_EN, SFR_P2, 2);            // Board Controller Enable
 // Global Variables
 //-----------------------------------------------------------------------------
 // Variables in Interrupts.c
-unsigned char xdata textBuffer[520];
+unsigned char xdata textBuffer[520] = {0};
 int bufOffset = 0;
 int bufLen = 0;
-
+char xdata thatDankDisplayShit[21];
+uint8_t scrollOffset = 0;
+int min(int a, int b){
+	if(a<b) return a; else return b;
+}
+int max(int a, int b){
+	if(a>b) return a; else return b;
+}
 //-----------------------------------------------------------------------------
 // Main Routine
 //-----------------------------------------------------------------------------
+static uint8_t getJoystick(void)
+{
+  uint32_t mv;
+  uint8_t dir;
+
+  ADC0CN0_ADBUSY = 1;
+  while (!ADC0CN0_ADINT);
+  ADC0CN0_ADINT = 0;
+
+  mv = ((uint32_t)ADC0) * 3300 / 1024;
+
+  dir = JOYSTICK_convert_mv_to_direction(mv);
+
+  return dir;
+}
+
+//-----------------------------------------------------------------------------
+// getWaitJoystick
+//-----------------------------------------------------------------------------
+//
+// Get joystick input. If joystick was moved, wait for release. Return joystick
+// direction. Valid return values:
+//  JOYSTICK_NONE   JOYSTICK_N   JOYSTICK_S
+//  JOYSTICK_C      JOYSTICK_E   JOYSTICK_W
+//
+static uint8_t getWaitJoystick(void)
+{
+  uint8_t dir, dirSave;
+
+  dir = getJoystick();
+  dirSave = dir;
+
+  // wait for release then transition
+  while (dir != JOYSTICK_NONE)
+  {
+    dir = getJoystick();
+  }
+
+  return dirSave;
+}
+
+static void processInput(uint8_t dir)
+{
+  // process input
+  if (dir == JOYSTICK_N)
+  {
+    //scrollOffset = (scrollOffset++)%5;
+    P1_B6 = 0;
+  }
+  else if (dir == JOYSTICK_S)
+  {
+    P1_B6 = 0;
+  }
+  else{
+	  P1_B6 = 1;
+	  P1_B5 = 1;
+  }
+}
+
 SI_INTERRUPT (UART0_ISR, UART0_IRQn)
 {
 	int endOffset;
 	if(P1_B4 == 0){
 			P1_B4 = 1;
-			P1_B5 = 1;
-			P1_B6 = 1;
 		}
 		else{
 			P1_B4 = 0;
-			P1_B5 = 0;
-			P1_B6 = 0;
 		}
 	while(SCON0_RI) {
 			SCON0_RI = 0;
@@ -106,22 +168,64 @@ SI_INTERRUPT (UART0_ISR, UART0_IRQn)
 
 void main (void)
 {
-   enter_DefaultMode_from_RESET();
+	uint8_t i;
+	uint8_t j;
+	uint8_t firstLine;
 
-   DISP_EN = DISP_EFM8_DRIVEN;           	// EFM8 drives display
+	bool hexModeStatus = false;
+	bool lP0B2;
 
-   TMR2CN0 = 2;
+	enter_DefaultMode_from_RESET();
 
-   BC_EN = BC_DISCONNECTED;               	// Board controller connected to EFM8
+
+	DISP_EN = DISP_EFM8_DRIVEN;           	// EFM8 drives display
+
+	TMR2CN0 = 2;
+
+	BC_EN = BC_DISCONNECTED;               	// Board controller connected to EFM8
                                        	   // UART pins
-   IE_EA = 1;
+	IE_EA = 1;
 
-   DISP_Init();
+	DISP_Init();
 
-   renderAndWriteCenteredText(46, 1, "FML /n");
+	while(1)
+	{
+		//processInput(getWaitJoystick());
 
-   while(1)
-   {
+		if (!P0_B2 && hexModeStatus) {
+			hexModeStatus = false;
+			lP0B2 = true;
+		}
+		else if(!P0_B2 && !hexModeStatus){
+			hexModeStatus = true;
+			lP0B2 = true;
+		}
+		else{
+			lP0B2 = false;
+		}
+		if (!hexModeStatus){
+			/*
+			for (j=0; j<(bufLen/20);j++){
+				for (i=0;i<21;i++){
+					thatDankDisplayShit[i]=textBuffer[(21*j)+(i+scrollOffset)];
+				}
+				renderAndWrite(0,8*j,0, thatDankDisplayShit);
+			}
+			*/
+			firstLine = max(0,(bufLen-1)/20-15)-scrollOffset;
+			for(j=firstLine; j < min(firstLine+16,(bufLen-1)/20+1); j++){
+				for(i = 0 ; i < 21; i++){
+					// our offset in the buffer should be 20*j + i
+					if(20*j + i > bufLen) thatDankDisplayShit[i] = 0;
+					else thatDankDisplayShit[i] = textBuffer[(20*j + i)%520];
 
-   }
+				}
+				renderAndWrite(0, 8*(j-firstLine),0,thatDankDisplayShit);
+			}
+		}
+		else if (hexModeStatus) {
+			DISP_ClearAll();
+			renderAndWriteCenteredText(46, 1, "GOD MODE");
+		}
+	}
 }

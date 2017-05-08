@@ -16,6 +16,7 @@ RM := rm -rf
 -include lib/efm8bb3/bsp/efm8_memory_lcd/src/source/subdir.mk
 -include lib/bsp/efm8_retargetserial/subdir.mk
 -include lib/bsp/efm8_memory_lcd/src/subdir.mk
+-include lib/bsp/efm8_joystick/subdir.mk
 -include subdir.mk
 -include objects.mk
 

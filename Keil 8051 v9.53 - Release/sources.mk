@@ -13,6 +13,7 @@ OBJS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+lib/bsp/efm8_joystick \
 lib/bsp/efm8_memory_lcd/src \
 lib/bsp/efm8_retargetserial \
 lib/efm8bb3/bsp/efm8_memory_lcd/src/source \

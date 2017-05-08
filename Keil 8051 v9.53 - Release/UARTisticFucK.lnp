@@ -1,3 +1,4 @@
+"./lib/bsp/efm8_joystick/joystick.OBJ",
 "./lib/bsp/efm8_memory_lcd/src/disp.OBJ",
 "./lib/bsp/efm8_memory_lcd/src/render-extended.OBJ",
 "./lib/bsp/efm8_memory_lcd/src/render.OBJ",

@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   DISP                                                              05/07/2017 19:52:11 PAGE 1   
+C51 COMPILER V9.53.0.0   DISP                                                              05/08/2017 17:55:01 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE DISP
@@ -13,10 +13,11 @@ COMPILER INVOKED BY: Z:\Applications\Simplicity Studio.app\Contents\Eclipse\deve
                     -e/developer/sdks/8051/v4.0.3//Device/EFM8BB3/peripheral_driver/inc;/Applications/Simplicity Studio.app/Contents/Eclipse/
                     -developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_memory_lcd/inc;/Applications/Simplicity Studio.app/Contents/Eclipse
                     -/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_memory_lcd/inc/graphics;/Applications/Simplicity Studio.app/Conten
-                    -ts/Eclipse/developer/sdks/8051/v4.0.3//Device/shared/si8051base;/Applications/Simplicity Studio.app/Contents/Eclipse/dev
-                    -eloper/sdks/8051/v4.0.3//Device/EFM8BB3/inc;/Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.
-                    -0.3//kits/common/drivers/efm8_retargetserial) PRINT(.\lib/bsp/efm8_memory_lcd/src/disp.lst) COND PAGEWIDTH(120) PAGELENG
-                    -TH(65) OBJECT(.\lib/bsp/efm8_memory_lcd/src/disp.OBJ)
+                    -ts/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_joystick;/Applications/Simplicity Studio.app/Contents/Ec
+                    -lipse/developer/sdks/8051/v4.0.3//Device/shared/si8051base;/Applications/Simplicity Studio.app/Contents/Eclipse/develope
+                    -r/sdks/8051/v4.0.3//Device/EFM8BB3/inc;/Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//
+                    -kits/common/drivers/efm8_retargetserial) PRINT(.\lib/bsp/efm8_memory_lcd/src/disp.lst) COND PAGEWIDTH(120) PAGELENGTH(65
+                    -) OBJECT(.\lib/bsp/efm8_memory_lcd/src/disp.OBJ)
 
 line level    source
 
@@ -62,9 +63,9 @@ line level    source
   40          uint8_t BitReverse(uint8_t input)
   41          {
   42   1          uint8_t output = input;
-  43   1      
-C51 COMPILER V9.53.0.0   DISP                                                              05/07/2017 19:52:11 PAGE 2   
+C51 COMPILER V9.53.0.0   DISP                                                              05/08/2017 17:55:01 PAGE 2   
 
+  43   1      
   44   1          output = (output & 0xF0) >> 4 | (output & 0x0F) << 4;
   45   1          output = (output & 0xCC) >> 2 | (output & 0x33) << 2;
   46   1          output = (output & 0xAA) >> 1 | (output & 0x55) << 1;
@@ -127,9 +128,9 @@ line level    source
  103   1          {
  104   2              DISP_ClearLine(i, COLOR_BLACK);
  105   2          }
- 106   1      #endif
-C51 COMPILER V9.53.0.0   DISP                                                              05/07/2017 19:52:11 PAGE 3   
+C51 COMPILER V9.53.0.0   DISP                                                              05/08/2017 17:55:01 PAGE 3   
 
+ 106   1      #endif
  107   1      }
  108          
  109          /***************************************************************************//**
@@ -192,9 +193,9 @@ line level    source
  166   1          for (i = 0; i < DISP_BUF_SIZE; i++)
  167   1          {
  168   2            cmd[i+2] = line[i];
- 169   2          }
-C51 COMPILER V9.53.0.0   DISP                                                              05/07/2017 19:52:11 PAGE 4   
+C51 COMPILER V9.53.0.0   DISP                                                              05/08/2017 17:55:01 PAGE 4   
 
+ 169   2          }
  170   1      
  171   1          // Send dummy data
  172   1          cmd[DISP_BUF_SIZE + 2] = DISP_CMD_DUMMY;

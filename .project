@@ -24,6 +24,16 @@
 			<locationURI>STUDIO_SDK_LOC/kits/common/bsp/bsp.h</locationURI>
 		</link>
 		<link>
+			<name>lib/bsp/efm8_joystick/joystick.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/kits/common/drivers/efm8_joystick/joystick.c</locationURI>
+		</link>
+		<link>
+			<name>lib/bsp/efm8_joystick/joystick.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/kits/common/drivers/efm8_joystick/joystick.h</locationURI>
+		</link>
+		<link>
 			<name>lib/bsp/efm8_retargetserial/retargetio.c</name>
 			<type>1</type>
 			<locationURI>STUDIO_SDK_LOC/kits/common/drivers/efm8_retargetserial/retargetio.c</locationURI>
