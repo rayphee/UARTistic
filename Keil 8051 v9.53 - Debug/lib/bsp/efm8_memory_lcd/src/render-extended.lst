@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   RENDER_EXTENDED                                                   05/07/2017 15:44:59 PAGE 1   
+C51 COMPILER V9.53.0.0   RENDER_EXTENDED                                                   05/07/2017 18:59:58 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE RENDER_EXTENDED
@@ -41,7 +41,7 @@ line level    source
   16          {
   17   1              uint8_t x = (128-RENDER_GetStrSize(str))/2;
   18   1              renderAndWrite(x, y, underlined, str);
-  19   1              RENDER_ClrLine(line);
+  19   1              //RENDER_ClrLine(line);
   20   1      }
   21          
   22          void renderAndWriteHorizontalLine(uint8_t xstart, uint8_t xend, uint8_t y){
@@ -63,7 +63,7 @@ line level    source
   37   2              }
   38   1              RENDER_ClrLine(line);
   39   1      }
-C51 COMPILER V9.53.0.0   RENDER_EXTENDED                                                   05/07/2017 15:44:59 PAGE 2   
+C51 COMPILER V9.53.0.0   RENDER_EXTENDED                                                   05/07/2017 18:59:58 PAGE 2   
 
   40          
   41          uint16_t timeInMilliseconds(uint16_t timeInMilli){
@@ -92,7 +92,7 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    244    ----
+   CODE SIZE        =    237    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =     16    ----
    PDATA SIZE       =   ----    ----

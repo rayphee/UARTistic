@@ -108,15 +108,17 @@ void main (void)
 {
    enter_DefaultMode_from_RESET();
 
-   DISP_EN = DISP_EFM8_DRIVEN;           // EFM8 does not drive display
+   DISP_EN = DISP_EFM8_DRIVEN;           	// EFM8 drives display
 
-   BC_EN = BC_DISCONNECTED;               // Board controller connected to EFM8
-                                       // UART pins
+   TMR2CN0 = 2;
+
+   BC_EN = BC_DISCONNECTED;               	// Board controller connected to EFM8
+                                       	   // UART pins
    IE_EA = 1;
 
    DISP_Init();
 
-   renderAndWriteCenteredText(46, 1, "Hello");
+   renderAndWriteCenteredText(46, 1, "FML /n");
 
    while(1)
    {

@@ -16,7 +16,7 @@ void renderAndWriteCenteredText(uint8_t y, uint8_t underlined, SI_VARIABLE_SEGME
 {
 	uint8_t x = (128-RENDER_GetStrSize(str))/2;
 	renderAndWrite(x, y, underlined, str);
-	RENDER_ClrLine(line);
+	//RENDER_ClrLine(line);
 }
 
 void renderAndWriteHorizontalLine(uint8_t xstart, uint8_t xend, uint8_t y){

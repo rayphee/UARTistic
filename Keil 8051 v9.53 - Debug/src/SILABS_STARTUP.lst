@@ -1,25 +1,25 @@
-AX51 MACRO ASSEMBLER  SILABS_STARTUP                                                        05/07/17 14:57:16 PAGE     1
+AX51 MACRO ASSEMBLER  SILABS_STARTUP                                                        05/07/17 17:56:26 PAGE     1
 
 
 MACRO ASSEMBLER AX51 V3.12.0.0
 OBJECT MODULE PLACED IN .\src\SILABS_STARTUP.OBJ
 ASSEMBLER INVOKED BY: Z:\Applications\Simplicity Studio.app\Contents\Eclipse\developer\toolchains\keil_8051\9.53\BIN\AX5
                       1.exe /Users/rafi/SimplicityStudio/v4_workspace/UARTisticFucK/src/SILABS_STARTUP.A51 ERRORPRINT SE
-                      T(SMALL) DEBUG MACRO NOMOD51 INCDIR(/Users/rafi/SimplicityStudio/v4_workspace/UARTisticFucK/inc/co
-                      nfig;/Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//Device/EFM8B
-                      B3/peripheral_driver/inc;/Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/
-                      v4.0.3//kits/common/bsp;/Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v
-                      4.0.3//kits/EFM8BB3_SLSTK2022A/config;/Applications/Simplicity Studio.app/Contents/Eclipse/develop
-                      er/sdks/8051/v4.0.3//kits/common/drivers/efm8_memory_lcd/inc;/Applications/Simplicity Studio.app/C
-                      ontents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_memory_lcd/inc/graphics;/Appl
-                      ications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/ef
-                      m8_memory_lcd/inc/config;/Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/
-                      v4.0.3//kits/common/drivers/efm8_joystick;/Applications/Simplicity Studio.app/Contents/Eclipse/dev
-                      eloper/sdks/8051/v4.0.3//kits/common/drivers/efm8_rgb_led;/Applications/Simplicity Studio.app/Cont
-                      ents/Eclipse/developer/sdks/8051/v4.0.3//Device/shared/si8051base;/Applications/Simplicity Studio.
-                      app/Contents/Eclipse/developer/sdks/8051/v4.0.3//Device/EFM8BB3/inc;/Applications/Simplicity Studi
-                      o.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_retargetserial) PRINT(
-                      .\src\SILABS_STARTUP.lst) COND SYMBOLS PAGEWIDTH(120) PAGELENGTH(65) OBJECT(.\src\SILABS_STARTUP.OBJ) 
+                      T(SMALL) DEBUG MACRO NOMOD51 INCDIR(/Applications/Simplicity Studio.app/Contents/Eclipse/developer
+                      /sdks/8051/v4.0.3//Device/EFM8BB3/peripheral_driver/inc;/Applications/Simplicity Studio.app/Conten
+                      ts/Eclipse/developer/sdks/8051/v4.0.3//kits/common/bsp;/Applications/Simplicity Studio.app/Content
+                      s/Eclipse/developer/sdks/8051/v4.0.3//kits/EFM8BB3_SLSTK2022A/config;/Applications/Simplicity Stud
+                      io.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_memory_lcd/inc;/Appli
+                      cations/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm
+                      8_memory_lcd/inc/graphics;/Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051
+                      /v4.0.3//kits/common/drivers/efm8_memory_lcd/inc/config;/Applications/Simplicity Studio.app/Conten
+                      ts/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_joystick;/Applications/Simplicity 
+                      Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/drivers/efm8_rgb_led;/Applicat
+                      ions/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//Device/shared/si8051base;/
+                      Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//Device/EFM8BB3/inc
+                      ;/Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/8051/v4.0.3//kits/common/driv
+                      ers/efm8_retargetserial) PRINT(.\src\SILABS_STARTUP.lst) COND SYMBOLS PAGEWIDTH(120) PAGELENGTH(65
+                      ) OBJECT(.\src\SILABS_STARTUP.OBJ) 
 
 LOC    OBJ             LINE     SOURCE
 
@@ -62,7 +62,7 @@ LOC    OBJ             LINE     SOURCE
                          37     ;     <i> The length of XDATA memory in bytes.
  0000                    38     XDATALEN        EQU     0      
                          39     ;
-AX51 MACRO ASSEMBLER  SILABS_STARTUP                                                        05/07/17 14:57:16 PAGE     2
+AX51 MACRO ASSEMBLER  SILABS_STARTUP                                                        05/07/17 17:56:26 PAGE     2
 
                          40     ; <o> PDATASTART: PDATA memory start address <0x0-0xFFFF> 
                          41     ;     <i> The absolute start address of PDATA memory
@@ -127,7 +127,7 @@ LOC    OBJ             LINE     SOURCE
                         100     ; <i> most 8051 variants use P2 as uppermost address byte
  00A0                   101     PPAGE_SFR       DATA    0A0H
                         102     ;
-AX51 MACRO ASSEMBLER  SILABS_STARTUP                                                        05/07/17 14:57:16 PAGE     3
+AX51 MACRO ASSEMBLER  SILABS_STARTUP                                                        05/07/17 17:56:26 PAGE     3
 
                         103     ; </e>
                         104     ;------------------------------------------------------------------------------
@@ -192,7 +192,7 @@ LOC    OBJ             LINE     SOURCE
                         163     IF PDATALEN <> 0
                                                 MOV     R0,#LOW (PDATASTART)
                                                 MOV     R7,#LOW (PDATALEN)
-AX51 MACRO ASSEMBLER  SILABS_STARTUP                                                        05/07/17 14:57:16 PAGE     4
+AX51 MACRO ASSEMBLER  SILABS_STARTUP                                                        05/07/17 17:56:26 PAGE     4
 
                                                 CLR     A
                                 PDATALOOP:      MOVX    @R0,A
@@ -233,7 +233,7 @@ LOC    OBJ             LINE     SOURCE
 000009 020000     E     201                     LJMP    ?C_START
                         202     
                         203                     END
-AX51 MACRO ASSEMBLER  SILABS_STARTUP                                                        05/07/17 14:57:16 PAGE     5
+AX51 MACRO ASSEMBLER  SILABS_STARTUP                                                        05/07/17 17:56:26 PAGE     5
 
 SYMBOL TABLE LISTING
 ------ ----- -------

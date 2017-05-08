@@ -26,7 +26,6 @@ extern void ADC_0_enter_DefaultMode_from_RESET(void);
 extern void CLOCK_0_enter_DefaultMode_from_RESET(void);
 extern void TIMER01_0_enter_DefaultMode_from_RESET(void);
 extern void TIMER16_3_enter_DefaultMode_from_RESET(void);
-extern void TIMER16_4_enter_DefaultMode_from_RESET(void);
 extern void TIMER_SETUP_0_enter_DefaultMode_from_RESET(void);
 extern void SPI_0_enter_DefaultMode_from_RESET(void);
 extern void UART_0_enter_DefaultMode_from_RESET(void);

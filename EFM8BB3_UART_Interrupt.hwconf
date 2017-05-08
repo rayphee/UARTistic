@@ -18,15 +18,10 @@
     <property object="DefaultMode" propertyId="mode.diagramLocation" value="100, 100"/>
     <property object="INTERRUPT_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="INTERRUPT_0" propertyId="interrupt.extendedinterruptenable1.enabletimer3interrupt" value="Enabled"/>
-    <property object="INTERRUPT_0" propertyId="interrupt.extendedinterruptpriority1low.portmatchprioritycontrollsbinterrupt" value="High"/>
-    <property object="INTERRUPT_0" propertyId="interrupt.extendedinterruptpriority1low.timer3prioritycontrollsbinterrupt" value="High"/>
-    <property object="INTERRUPT_0" propertyId="interrupt.extendedinterruptpriority2.timer4prioritycontrollsbinterrupt" value="High"/>
     <property object="INTERRUPT_0" propertyId="interrupt.interruptenable.enableallinterrupts" value="Enabled"/>
     <property object="INTERRUPT_0" propertyId="interrupt.interruptenable.enablespi0interrupt" value="Enabled"/>
     <property object="INTERRUPT_0" propertyId="interrupt.interruptenable.enabletimer2interrupt" value="Enabled"/>
     <property object="INTERRUPT_0" propertyId="interrupt.interruptenable.enableuart0interrupt" value="Enabled"/>
-    <property object="INTERRUPT_0" propertyId="interrupt.interruptpriority.uart0prioritycontrollsbinterrupt" value="High"/>
-    <property object="INTERRUPT_0" propertyId="interrupt.interruptpriorityhigh.uart0prioritycontrolmsbinterrupt" value="High"/>
     <property object="INTERRUPT_0" propertyId="interruptenables.codegenerationoptions.generateinterruptfunctions" value="Disabled"/>
     <property object="P0.0" propertyId="ports.settings.skip" value="Skipped"/>
     <property object="P0.1" propertyId="ports.settings.skip" value="Skipped"/>
@@ -81,18 +76,7 @@
     <property object="TIMER16_3" propertyId="timer16.reloadhighbyte.reloadhighbyte" value="248"/>
     <property object="TIMER16_3" propertyId="timer16.reloadlowbyte.reloadlowbyte" value="6"/>
     <property object="TIMER16_4" propertyId="ABPeripheral.included" value="true"/>
-    <property object="TIMER16_4" propertyId="timer16.control.clocksource" value="SYSCLK"/>
-    <property object="TIMER16_4" propertyId="timer16.control.runcontrol" value="Start"/>
-    <property object="TIMER16_4" propertyId="timer16.control.timerrunningstate" value="Timer is Running"/>
-    <property object="TIMER16_4" propertyId="timer16.highbyte.highbyte" value="254"/>
-    <property object="TIMER16_4" propertyId="timer16.initandreloadvalue.targetoverflowfrequency" value="60000"/>
-    <property object="TIMER16_4" propertyId="timer16.initandreloadvalue.timerinitvalue" value="65128"/>
-    <property object="TIMER16_4" propertyId="timer16.initandreloadvalue.timerreloadvalue" value="65128"/>
-    <property object="TIMER16_4" propertyId="timer16.lowbyte.lowbyte" value="104"/>
-    <property object="TIMER16_4" propertyId="timer16.reloadhighbyte.reloadhighbyte" value="254"/>
-    <property object="TIMER16_4" propertyId="timer16.reloadlowbyte.reloadlowbyte" value="104"/>
     <property object="TIMER_SETUP_0" propertyId="ABPeripheral.included" value="true"/>
-    <property object="TIMER_SETUP_0" propertyId="timer_setup.clockcontrol.timer4lowbyteclockselect" value="Use SYSCLK"/>
     <property object="TIMER_SETUP_0" propertyId="timer_setup.clockcontrol0.timer01prescale" value="SYSCLK / 48"/>
     <property object="TIMER_SETUP_0" propertyId="timer_setup.timer0.mode" value="Mode 2, 8-bit Counter/Timer with Auto-Reload"/>
     <property object="TIMER_SETUP_0" propertyId="timer_setup.timer0.timerrunningstate" value="Timer is Running"/>
