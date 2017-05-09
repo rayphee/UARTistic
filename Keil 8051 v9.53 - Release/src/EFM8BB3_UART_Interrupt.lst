@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   EFM8BB3_UART_INTERRUPT                                            05/08/2017 20:00:00 PAGE 1   
+C51 COMPILER V9.53.0.0   EFM8BB3_UART_INTERRUPT                                            05/08/2017 20:26:17 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE EFM8BB3_UART_INTERRUPT
@@ -63,7 +63,7 @@ line level    source
   41          //
   42          // Target:         EFM8BB3
   43          // Tool chain:     Generic
-C51 COMPILER V9.53.0.0   EFM8BB3_UART_INTERRUPT                                            05/08/2017 20:00:00 PAGE 2   
+C51 COMPILER V9.53.0.0   EFM8BB3_UART_INTERRUPT                                            05/08/2017 20:26:17 PAGE 2   
 
   44          //
   45          // Release 0.1 (ST)
@@ -105,195 +105,217 @@ line level    source
   77          //-----------------------------------------------------------------------------
   78          // Variables in Interrupts.c
   79          unsigned char xdata textBuffer[520] = {0};
-  80          int bufOffset = 0;
-  81          int bufLen = 0;
-  82          char xdata thatDankDisplayShit[21];
-  83          int8_t scrollOffset = 0;
-  84          uint8_t allowScroll = 1;
-  85          int bl_;
-  86          int bo_;
-  87          int min(int a, int b){
-  88   1              if(a<b) return a; else return b;
-  89   1      }
-  90          int max(int a, int b){
-  91   1              if(a>b) return a; else return b;
-  92   1      }
-  93          //-----------------------------------------------------------------------------
-  94          // Main Routine
-  95          //-----------------------------------------------------------------------------
-  96          static uint8_t getJoystick(void)
-  97          {
-  98   1        uint32_t mv;
-  99   1        uint8_t dir;
- 100   1      
- 101   1        ADC0CN0_ADBUSY = 1;
- 102   1        while (!ADC0CN0_ADINT);
-C51 COMPILER V9.53.0.0   EFM8BB3_UART_INTERRUPT                                            05/08/2017 20:00:00 PAGE 3   
+  80          unsigned char xdata hexTable[16] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+  81          int bufOffset = 0;
+  82          int bufLen = 0;
+  83          char xdata thatDankDisplayShit[21];
+  84          int8_t scrollOffset = 0;
+  85          uint8_t allowScroll = 1;
+  86          int bl_;
+  87          int bo_;
+  88          int min(int a, int b){
+  89   1              if(a<b) return a; else return b;
+  90   1      }
+  91          int max(int a, int b){
+  92   1              if(a>b) return a; else return b;
+  93   1      }
+  94          //-----------------------------------------------------------------------------
+  95          // Main Routine
+  96          //-----------------------------------------------------------------------------
+  97          static uint8_t getJoystick(void)
+  98          {
+  99   1        uint32_t mv;
+ 100   1        uint8_t dir;
+ 101   1      
+ 102   1        ADC0CN0_ADBUSY = 1;
+C51 COMPILER V9.53.0.0   EFM8BB3_UART_INTERRUPT                                            05/08/2017 20:26:17 PAGE 3   
 
- 103   1        ADC0CN0_ADINT = 0;
- 104   1      
- 105   1        mv = ((uint32_t)ADC0) * 3300 / 1024;
- 106   1      
- 107   1        dir = JOYSTICK_convert_mv_to_direction(mv);
- 108   1      
- 109   1        return dir;
- 110   1      }
- 111          
- 112          //-----------------------------------------------------------------------------
- 113          // getWaitJoystick
- 114          //-----------------------------------------------------------------------------
- 115          //
- 116          // Get joystick input. If joystick was moved, wait for release. Return joystick
- 117          // direction. Valid return values:
- 118          //  JOYSTICK_NONE   JOYSTICK_N   JOYSTICK_S
- 119          //  JOYSTICK_C      JOYSTICK_E   JOYSTICK_W
- 120          //
- 121          static uint8_t getWaitJoystick(void)
- 122          {
- 123   1              uint32_t mv;
- 124   1      
- 125   1               ADC0CN0_ADBUSY = 1;
- 126   1                  while (!ADC0CN0_ADINT);
- 127   1                  ADC0CN0_ADINT = 0;
- 128   1      
- 129   1                  mv = ((uint32_t)ADC0) * 3300 / 1024 / 4;
- 130   1                  mv = mv+1;
- 131   1                  return JOYSTICK_convert_mv_to_direction(mv);
- 132   1      }
- 133          //static uint8_t getWaitJoystick(void)
- 134          //{
- 135          //  uint8_t dir, dirSave;
- 136          //
- 137          //  dir = getJoystick();
- 138          //  dirSave = dir;
- 139          //
- 140          //  // wait for release then transition
- 141          //  while (dir != JOYSTICK_NONE)
- 142          //  {
- 143          //    dir = getJoystick();
- 144          //  }
- 145          //
- 146          //  return dirSave;
- 147          //}
- 148          
- 149          static void processInput(uint8_t dir)
- 150          {
- 151   1        // process input
- 152   1        if (dir == JOYSTICK_N && allowScroll)
- 153   1        {
- 154   2          scrollOffset++;
- 155   2          P1_B6 = 0;
- 156   2        }
- 157   1        else if (dir == JOYSTICK_S && allowScroll)
- 158   1        {
- 159   2          P1_B6 = 0;
- 160   2          scrollOffset--;
- 161   2        }
- 162   1        else{
- 163   2                P1_B6 = 1;
- 164   2                P1_B5 = 1;
- 165   2      
-C51 COMPILER V9.53.0.0   EFM8BB3_UART_INTERRUPT                                            05/08/2017 20:00:00 PAGE 4   
+ 103   1        while (!ADC0CN0_ADINT);
+ 104   1        ADC0CN0_ADINT = 0;
+ 105   1      
+ 106   1        mv = ((uint32_t)ADC0) * 3300 / 1024;
+ 107   1      
+ 108   1        dir = JOYSTICK_convert_mv_to_direction(mv);
+ 109   1      
+ 110   1        return dir;
+ 111   1      }
+ 112          
+ 113          //-----------------------------------------------------------------------------
+ 114          // getWaitJoystick
+ 115          //-----------------------------------------------------------------------------
+ 116          //
+ 117          // Get joystick input. If joystick was moved, wait for release. Return joystick
+ 118          // direction. Valid return values:
+ 119          //  JOYSTICK_NONE   JOYSTICK_N   JOYSTICK_S
+ 120          //  JOYSTICK_C      JOYSTICK_E   JOYSTICK_W
+ 121          //
+ 122          static uint8_t getWaitJoystick(void)
+ 123          {
+ 124   1              uint32_t mv;
+ 125   1      
+ 126   1               ADC0CN0_ADBUSY = 1;
+ 127   1                  while (!ADC0CN0_ADINT);
+ 128   1                  ADC0CN0_ADINT = 0;
+ 129   1      
+ 130   1                  mv = ((uint32_t)ADC0) * 3300 / 1024 / 4;
+ 131   1                  mv = mv+1;
+ 132   1                  return JOYSTICK_convert_mv_to_direction(mv);
+ 133   1      }
+ 134          //static uint8_t getWaitJoystick(void)
+ 135          //{
+ 136          //  uint8_t dir, dirSave;
+ 137          //
+ 138          //  dir = getJoystick();
+ 139          //  dirSave = dir;
+ 140          //
+ 141          //  // wait for release then transition
+ 142          //  while (dir != JOYSTICK_NONE)
+ 143          //  {
+ 144          //    dir = getJoystick();
+ 145          //  }
+ 146          //
+ 147          //  return dirSave;
+ 148          //}
+ 149          
+ 150          static void processInput(uint8_t dir)
+ 151          {
+ 152   1        // process input
+ 153   1        if (dir == JOYSTICK_N && allowScroll)
+ 154   1        {
+ 155   2          scrollOffset++;
+ 156   2          P1_B6 = 0;
+ 157   2        }
+ 158   1        else if (dir == JOYSTICK_S && allowScroll)
+ 159   1        {
+ 160   2          P1_B6 = 0;
+ 161   2          scrollOffset--;
+ 162   2        }
+ 163   1        else{
+ 164   2                P1_B6 = 1;
+ 165   2                P1_B5 = 1;
+C51 COMPILER V9.53.0.0   EFM8BB3_UART_INTERRUPT                                            05/08/2017 20:26:17 PAGE 4   
 
- 166   2        }
- 167   1        allowScroll = (dir == 0);
- 168   1        scrollOffset = max(0,min(scrollOffset,(bufLen-1)/20-15));
- 169   1      }
- 170          
- 171          SI_INTERRUPT (UART0_ISR, UART0_IRQn)
- 172          {
- 173   1              int endOffset;
- 174   1              if(P1_B4 == 0){
- 175   2                              P1_B4 = 1;
- 176   2                      }
- 177   1                      else{
- 178   2                              P1_B4 = 0;
- 179   2                      }
- 180   1              while(SCON0_RI) {
- 181   2                              SCON0_RI = 0;
- 182   2                              endOffset = (bufOffset + bufLen)%520;
- 183   2                              textBuffer[endOffset] = SBUF0;
- 184   2              if(bufLen < 519) bufLen++; else {
- 185   3                      bufOffset+=bo_;
- 186   3                      bufLen=bl_;
- 187   3              }
- 188   2                      }
- 189   1      }
- 190          
- 191          void main (void)
- 192          {
- 193   1              uint8_t i;
- 194   1              uint8_t j;
- 195   1              uint8_t firstLine;
- 196   1              bool hexModeStatus = false;
- 197   1              bool lP0B2;
- 198   1      
- 199   1              bl_ = 500;
- 200   1              bo_ = 20;
- 201   1              enter_DefaultMode_from_RESET();
+ 166   2      
+ 167   2        }
+ 168   1        allowScroll = (dir == 0);
+ 169   1        scrollOffset = max(0,min(scrollOffset,(bufLen-1)/20-15));
+ 170   1      }
+ 171          
+ 172          SI_INTERRUPT (UART0_ISR, UART0_IRQn)
+ 173          {
+ 174   1              int endOffset;
+ 175   1              if(P1_B4 == 0){
+ 176   2                              P1_B4 = 1;
+ 177   2                      }
+ 178   1                      else{
+ 179   2                              P1_B4 = 0;
+ 180   2                      }
+ 181   1              while(SCON0_RI) {
+ 182   2                              SCON0_RI = 0;
+ 183   2                              endOffset = (bufOffset + bufLen)%520;
+ 184   2                              textBuffer[endOffset] = SBUF0;
+ 185   2              if(bufLen < 519) bufLen++; else {
+ 186   3                      bufOffset+=bo_;
+ 187   3                      bufLen=bl_;
+ 188   3              }
+ 189   2                      }
+ 190   1      }
+ 191          
+ 192          void main (void)
+ 193          {
+ 194   1              uint8_t i;
+ 195   1              uint8_t j;
+ 196   1              uint8_t msb;
+ 197   1              uint8_t lsb;
+ 198   1              uint8_t firstLine;
+ 199   1              uint8_t p0b2l;
+ 200   1              bool hexModeStatus = false;
+ 201   1              bool lP0B2;
  202   1      
- 203   1      
- 204   1              DISP_EN = DISP_EFM8_DRIVEN;             // EFM8 drives display
- 205   1      
- 206   1              TMR2CN0 = 2;
+ 203   1              bl_ = 500;
+ 204   1              bo_ = 20;
+ 205   1              enter_DefaultMode_from_RESET();
+ 206   1      
  207   1      
- 208   1              BC_EN = BC_DISCONNECTED;                // Board controller connected to EFM8
- 209   1                                                 // UART pins
- 210   1              IE_EA = 1;
+ 208   1              DISP_EN = DISP_EFM8_DRIVEN;             // EFM8 drives display
+ 209   1      
+ 210   1              TMR2CN0 = 2;
  211   1      
- 212   1              DISP_Init();
- 213   1      
- 214   1              while(1)
- 215   1              {
- 216   2                      processInput(getWaitJoystick());
- 217   2      
- 218   2                      if (!P0_B2 && hexModeStatus) {
- 219   3                              hexModeStatus = false;
- 220   3                              lP0B2 = true;
- 221   3                      }
- 222   2                      else if(!P0_B2 && !hexModeStatus){
- 223   3                              hexModeStatus = true;
+ 212   1              BC_EN = BC_DISCONNECTED;                // Board controller connected to EFM8
+ 213   1                                                 // UART pins
+ 214   1              IE_EA = 1;
+ 215   1      
+ 216   1              DISP_Init();
+ 217   1      
+ 218   1              while(1)
+ 219   1              {
+ 220   2                      processInput(getWaitJoystick());
+ 221   2      
+ 222   2                      if (!P0_B2 && p0b2l && hexModeStatus) {
+ 223   3                              hexModeStatus = false;
  224   3                              lP0B2 = true;
- 225   3                      }
- 226   2                      else{
- 227   3                              lP0B2 = false;
- 228   3                      }
-C51 COMPILER V9.53.0.0   EFM8BB3_UART_INTERRUPT                                            05/08/2017 20:00:00 PAGE 5   
+ 225   3                              DISP_ClearAll();
+ 226   3                      }
+ 227   2                      else if(!P0_B2 && p0b2l && !hexModeStatus){
+ 228   3                              hexModeStatus = true;
+C51 COMPILER V9.53.0.0   EFM8BB3_UART_INTERRUPT                                            05/08/2017 20:26:17 PAGE 5   
 
- 229   2                      if (!hexModeStatus){
- 230   3                              /*
- 231   3                              for (j=0; j<(bufLen/20);j++){
- 232   3                                      for (i=0;i<21;i++){
- 233   3                                              thatDankDisplayShit[i]=textBuffer[(21*j)+(i+scrollOffset)];
- 234   3                                      }
- 235   3                                      renderAndWrite(0,8*j,0, thatDankDisplayShit);
- 236   3                              }
- 237   3                              */
- 238   3                              firstLine = max(0,(bufLen-1)/20-15)-scrollOffset;
- 239   3                              for(j=firstLine; j < min(firstLine+16,(bufLen-1)/20+1); j++){
- 240   4                                      for(i = 0 ; i < 20; i++){
- 241   5                                              // our offset in the buffer should be 20*j + i
- 242   5                                              if(20*j + i >= bufLen) thatDankDisplayShit[i] = 0;
- 243   5                                              else thatDankDisplayShit[i] = textBuffer[(20*j + i + bufOffset)%520];
- 244   5      
- 245   5                                      }
- 246   4                                      renderAndWrite(0, 8*(j-firstLine),0,thatDankDisplayShit);
- 247   4                              }
- 248   3                      }
- 249   2                      else if (hexModeStatus) {
- 250   3                              DISP_ClearAll();
- 251   3                              renderAndWriteCenteredText(46, 1, "GOD MODE");
- 252   3                      }
- 253   2              }
- 254   1      }
+ 229   3                              lP0B2 = true;
+ 230   3                              DISP_ClearAll();
+ 231   3                      }
+ 232   2                      else{
+ 233   3                              lP0B2 = false;
+ 234   3                      }
+ 235   2                      p0b2l = P0_B2;
+ 236   2                      if (!hexModeStatus){
+ 237   3                              /*
+ 238   3                              for (j=0; j<(bufLen/20);j++){
+ 239   3                                      for (i=0;i<21;i++){
+ 240   3                                              thatDankDisplayShit[i]=textBuffer[(21*j)+(i+scrollOffset)];
+ 241   3                                      }
+ 242   3                                      renderAndWrite(0,8*j,0, thatDankDisplayShit);
+ 243   3                              }
+ 244   3                              */
+ 245   3                              firstLine = max(0,(bufLen-1)/20-15)-scrollOffset;
+ 246   3                              for(j=firstLine; j < min(firstLine+16,(bufLen-1)/20+1); j++){
+ 247   4                                      for(i = 0 ; i < 20; i++){
+ 248   5                                              // our offset in the buffer should be 20*j + i
+ 249   5                                              if(20*j + i >= bufLen) thatDankDisplayShit[i] = 0;
+ 250   5                                              else thatDankDisplayShit[i] = textBuffer[(20*j + i + bufOffset)%520];
+ 251   5      
+ 252   5                                      }
+ 253   4                                      renderAndWrite(0, 8*(j-firstLine),0,thatDankDisplayShit);
+ 254   4                              }
+ 255   3                      }
+ 256   2                      else if (hexModeStatus) {
+ 257   3                              firstLine = max(0,(bufLen-1)/10-15)-(scrollOffset*2);
+ 258   3                              for(j=firstLine; j < min(firstLine+16,(bufLen-1)/10+1); j++){
+ 259   4                                      for(i = 0 ; i < 10; i++){
+ 260   5                                              // our offset in the buffer should be 20*j + i
+ 261   5                                              if(10*j + i >= bufLen) thatDankDisplayShit[2*i] = 0;
+ 262   5                                              else {
+ 263   6                                                      msb = (textBuffer[(10*j + i + bufOffset)%520] & 0xF0)>>4;
+ 264   6                                                      lsb = (textBuffer[(10*j + i + bufOffset)%520] & 0x0F);
+ 265   6                                                      thatDankDisplayShit[2*i] = hexTable[msb];
+ 266   6                                                      thatDankDisplayShit[2*i+1] = hexTable[lsb];
+ 267   6                                              }
+ 268   5      
+ 269   5                                      }
+ 270   4                                      renderAndWrite(0, 8*(j-firstLine),0,thatDankDisplayShit);
+ 271   4                              }
+ 272   3                              // msb = (val & 0xF0)>>4;
+ 273   3                              // lsb = (val & 0x0F);
+ 274   3                      }
+ 275   2              }
+ 276   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    642    ----
-   CONSTANT SIZE    =      9    ----
-   XDATA SIZE       =    541    ----
+   CODE SIZE        =    878    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =    557    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     10       2
+   DATA SIZE        =     10       4
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----       2
    EDATA SIZE       =   ----    ----
@@ -301,6 +323,8 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    XDATA CONST SIZE =   ----    ----
    FAR CONST SIZE   =   ----    ----
 END OF MODULE INFORMATION.
+
+C51 COMPILER V9.53.0.0   EFM8BB3_UART_INTERRUPT                                            05/08/2017 20:26:17 PAGE 6   
 
 
 C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

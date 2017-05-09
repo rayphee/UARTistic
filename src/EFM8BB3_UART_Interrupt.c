@@ -77,6 +77,7 @@ SI_SBIT (BC_EN, SFR_P2, 2);            // Board Controller Enable
 //-----------------------------------------------------------------------------
 // Variables in Interrupts.c
 unsigned char xdata textBuffer[520] = {0};
+unsigned char xdata hexTable[16] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
 int bufOffset = 0;
 int bufLen = 0;
 char xdata thatDankDisplayShit[21];
@@ -192,7 +193,10 @@ void main (void)
 {
 	uint8_t i;
 	uint8_t j;
+	uint8_t msb;
+	uint8_t lsb;
 	uint8_t firstLine;
+	uint8_t p0b2l;
 	bool hexModeStatus = false;
 	bool lP0B2;
 
@@ -215,17 +219,20 @@ void main (void)
 	{
 		processInput(getWaitJoystick());
 
-		if (!P0_B2 && hexModeStatus) {
+		if (!P0_B2 && p0b2l && hexModeStatus) {
 			hexModeStatus = false;
 			lP0B2 = true;
+			DISP_ClearAll();
 		}
-		else if(!P0_B2 && !hexModeStatus){
+		else if(!P0_B2 && p0b2l && !hexModeStatus){
 			hexModeStatus = true;
 			lP0B2 = true;
+			DISP_ClearAll();
 		}
 		else{
 			lP0B2 = false;
 		}
+		p0b2l = P0_B2;
 		if (!hexModeStatus){
 			/*
 			for (j=0; j<(bufLen/20);j++){
@@ -247,8 +254,23 @@ void main (void)
 			}
 		}
 		else if (hexModeStatus) {
-			DISP_ClearAll();
-			renderAndWriteCenteredText(46, 1, "GOD MODE");
+			firstLine = max(0,(bufLen-1)/10-15)-(scrollOffset*2);
+			for(j=firstLine; j < min(firstLine+16,(bufLen-1)/10+1); j++){
+				for(i = 0 ; i < 10; i++){
+					// our offset in the buffer should be 20*j + i
+					if(10*j + i >= bufLen) thatDankDisplayShit[2*i] = 0;
+					else {
+						msb = (textBuffer[(10*j + i + bufOffset)%520] & 0xF0)>>4;
+						lsb = (textBuffer[(10*j + i + bufOffset)%520] & 0x0F);
+						thatDankDisplayShit[2*i] = hexTable[msb];
+						thatDankDisplayShit[2*i+1] = hexTable[lsb];
+					}
+
+				}
+				renderAndWrite(0, 8*(j-firstLine),0,thatDankDisplayShit);
+			}
+			// msb = (val & 0xF0)>>4;
+			// lsb = (val & 0x0F);
 		}
 	}
 }
