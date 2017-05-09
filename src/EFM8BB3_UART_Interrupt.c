@@ -80,7 +80,10 @@ unsigned char xdata textBuffer[520] = {0};
 int bufOffset = 0;
 int bufLen = 0;
 char xdata thatDankDisplayShit[21];
-uint8_t scrollOffset = 0;
+int8_t scrollOffset = 0;
+uint8_t allowScroll = 1;
+int bl_;
+int bo_;
 int min(int a, int b){
 	if(a<b) return a; else return b;
 }
@@ -117,36 +120,52 @@ static uint8_t getJoystick(void)
 //
 static uint8_t getWaitJoystick(void)
 {
-  uint8_t dir, dirSave;
+	uint32_t mv;
 
-  dir = getJoystick();
-  dirSave = dir;
+	 ADC0CN0_ADBUSY = 1;
+	    while (!ADC0CN0_ADINT);
+	    ADC0CN0_ADINT = 0;
 
-  // wait for release then transition
-  while (dir != JOYSTICK_NONE)
-  {
-    dir = getJoystick();
-  }
-
-  return dirSave;
+	    mv = ((uint32_t)ADC0) * 3300 / 1024 / 4;
+	    mv = mv+1;
+	    return JOYSTICK_convert_mv_to_direction(mv);
 }
+//static uint8_t getWaitJoystick(void)
+//{
+//  uint8_t dir, dirSave;
+//
+//  dir = getJoystick();
+//  dirSave = dir;
+//
+//  // wait for release then transition
+//  while (dir != JOYSTICK_NONE)
+//  {
+//    dir = getJoystick();
+//  }
+//
+//  return dirSave;
+//}
 
 static void processInput(uint8_t dir)
 {
   // process input
-  if (dir == JOYSTICK_N)
+  if (dir == JOYSTICK_N && allowScroll)
   {
-    //scrollOffset = (scrollOffset++)%5;
+    scrollOffset++;
     P1_B6 = 0;
   }
-  else if (dir == JOYSTICK_S)
+  else if (dir == JOYSTICK_S && allowScroll)
   {
     P1_B6 = 0;
+    scrollOffset--;
   }
   else{
 	  P1_B6 = 1;
 	  P1_B5 = 1;
+
   }
+  allowScroll = (dir == 0);
+  scrollOffset = max(0,min(scrollOffset,(bufLen-1)/20-15));
 }
 
 SI_INTERRUPT (UART0_ISR, UART0_IRQn)
@@ -162,7 +181,10 @@ SI_INTERRUPT (UART0_ISR, UART0_IRQn)
 			SCON0_RI = 0;
 			endOffset = (bufOffset + bufLen)%520;
 			textBuffer[endOffset] = SBUF0;
-	if(bufLen < 520) bufLen++; else bufOffset++;
+	if(bufLen < 519) bufLen++; else {
+		bufOffset+=bo_;
+		bufLen=bl_;
+	}
 		}
 }
 
@@ -171,10 +193,11 @@ void main (void)
 	uint8_t i;
 	uint8_t j;
 	uint8_t firstLine;
-
 	bool hexModeStatus = false;
 	bool lP0B2;
 
+	bl_ = 500;
+	bo_ = 20;
 	enter_DefaultMode_from_RESET();
 
 
@@ -190,7 +213,7 @@ void main (void)
 
 	while(1)
 	{
-		//processInput(getWaitJoystick());
+		processInput(getWaitJoystick());
 
 		if (!P0_B2 && hexModeStatus) {
 			hexModeStatus = false;
@@ -214,10 +237,10 @@ void main (void)
 			*/
 			firstLine = max(0,(bufLen-1)/20-15)-scrollOffset;
 			for(j=firstLine; j < min(firstLine+16,(bufLen-1)/20+1); j++){
-				for(i = 0 ; i < 21; i++){
+				for(i = 0 ; i < 20; i++){
 					// our offset in the buffer should be 20*j + i
-					if(20*j + i > bufLen) thatDankDisplayShit[i] = 0;
-					else thatDankDisplayShit[i] = textBuffer[(20*j + i)%520];
+					if(20*j + i >= bufLen) thatDankDisplayShit[i] = 0;
+					else thatDankDisplayShit[i] = textBuffer[(20*j + i + bufOffset)%520];
 
 				}
 				renderAndWrite(0, 8*(j-firstLine),0,thatDankDisplayShit);

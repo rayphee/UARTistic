@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 17:55:01 PAGE 1   
+C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 19:25:57 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE RENDER
@@ -63,7 +63,7 @@ line level    source
               }
               
               #endif
-C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 17:55:01 PAGE 2   
+C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 19:25:57 PAGE 2   
 
   41          
   42          /***************************************************************************//**
@@ -128,7 +128,7 @@ line level    source
  101           * [xstart, xstop] in the line buffer to the foreground color
  102           *
  103           * @param line a line buffer to clear
-C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 17:55:01 PAGE 3   
+C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 19:25:57 PAGE 3   
 
  104           *        (length = ::DISP_BUF_SIZE; segment = ::RENDER_LINE_SEG)
  105           * @param xstart the starting x-position of the line segment [0, ::DISP_WIDTH)
@@ -193,7 +193,7 @@ line level    source
  164           *
  165           * To display the text, "TEST" horizontally on the LCD with the
  166           * top-left corner of the text block located on the LCD at
-C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 17:55:01 PAGE 4   
+C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 19:25:57 PAGE 4   
 
  167           * row = 4, col = 3, call:
  168           *
@@ -258,7 +258,7 @@ line level    source
                       tmp &= ~(0xFF00 >> posx % 8);
                       tmp |= (((uint16_t)font_byte << 8) >> (posx % 8));
                       *line16 = switchEndian(tmp);
-C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 17:55:01 PAGE 5   
+C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 19:25:57 PAGE 5   
 
               #else
  231   2              *line16 &= ~(0xFF00 >> posx % 8);
@@ -323,7 +323,7 @@ line level    source
  290           * x = [0, ::DISP_WIDTH-STR_WIDTH)
  291           * @param posy the y position for the text row relative to the top side of the
  292           * text block y = [0, ::DISP_HEIGHT-STR_HEIGHT)
-C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 17:55:01 PAGE 6   
+C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 19:25:57 PAGE 6   
 
  293           * @param str a null-terminated string to write
  294           * @param fontScale can be enlarged from 2x to 4x. However, if larger than 5x, this
@@ -388,7 +388,7 @@ line level    source
  353   5                                      }
  354   4                      }
  355   3                      else
-C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 17:55:01 PAGE 7   
+C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 19:25:57 PAGE 7   
 
  356   3                      {
  357   4                              enlarged_font_byte = (enlarged_font_byte >> fontScale);
@@ -453,7 +453,7 @@ line level    source
  416   3                  str++;
  417   3                  posx += FONT_WIDTH * fontScale;
  418   3                  continue;
-C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 17:55:01 PAGE 8   
+C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 19:25:57 PAGE 8   
 
  419   3              }
  420   2      
@@ -518,7 +518,7 @@ line level    source
  479           * ~~~
  480           *            LCD TOP
  481           * RR ________________________
-C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 17:55:01 PAGE 9   
+C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 19:25:57 PAGE 9   
 
  482           * 00|                        |
  483           * 01|                        |
@@ -583,7 +583,7 @@ line level    source
  542   1              return;
  543   1      
  544   1          // Figure out which character in the string is on the line at the
-C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 17:55:01 PAGE 10  
+C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 19:25:57 PAGE 10  
 
  545   1          // specified y-value
  546   1          charIndex = posy / FONT_WIDTH;
@@ -648,7 +648,7 @@ line level    source
  604          void RENDER_SpriteLine(
  605                  SI_VARIABLE_SEGMENT_POINTER(line, uint8_t, RENDER_LINE_SEG),
  606                  uint8_t posx,
-C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 17:55:01 PAGE 11  
+C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 19:25:57 PAGE 11  
 
  607                  uint8_t posy,
  608                  SI_VARIABLE_SEGMENT_POINTER(sprite, uint8_t, RENDER_SPRITE_SEG),
@@ -713,7 +713,7 @@ line level    source
  667          void RENDER_SpriteLineForeground(
  668                  SI_VARIABLE_SEGMENT_POINTER(line, uint8_t, RENDER_LINE_SEG),
  669                  uint8_t posx,
-C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 17:55:01 PAGE 12  
+C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 19:25:57 PAGE 12  
 
  670                  uint8_t posy,
  671                  SI_VARIABLE_SEGMENT_POINTER(sprite, uint8_t, RENDER_SPRITE_SEG),
@@ -778,7 +778,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    CONSTANT SIZE    =   1696    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 17:55:01 PAGE 13  
+C51 COMPILER V9.53.0.0   RENDER                                                            05/08/2017 19:25:57 PAGE 13  
 
    DATA SIZE        =   ----      60
    IDATA SIZE       =   ----    ----
